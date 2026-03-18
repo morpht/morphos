@@ -1,0 +1,18 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: components/searchbox/searchbox.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+.searchbox__query {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border-radius: 0;
+  border: 0;
+  box-shadow: unset;
+
+  &:focus-visible {
+    outline: 0;
+  }
+}

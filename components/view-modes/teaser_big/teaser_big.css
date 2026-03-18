@@ -1,0 +1,57 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: components/view-modes/teaser_big/teaser_big.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+.teaser--big {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 40rem) {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .teaser__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+    padding: 1.5rem 3rem;
+
+    @media (min-width: 40rem) {
+      flex: 1 1 auto;
+    }
+  }
+
+  .teaser__info {
+    color: var(--foreground-weak);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  .teaser__title {
+    font-size: 2rem;
+    margin: 0;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .teaser__date {
+    color: var(--foreground-weak);
+    font-size: 0.875rem;
+  }
+
+  .teaser__image {
+    flex: 0 0 50%;
+
+    img {
+      border-radius: var(--radius-box);
+    }
+  }
+}

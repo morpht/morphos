@@ -1,0 +1,200 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: base/megamenu.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+@reference "../tailwindcss";
+
+@layer components {
+  /* Megamenu container */
+  .megamenu {
+    position: relative;
+  }
+
+  /* Top-level menu list */
+  .megamenu__nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Top-level nav item */
+  .megamenu__nav-item {
+    position: static;
+  }
+
+  /* Top-level link */
+  .megamenu__nav-link {
+    @apply rounded-md px-3 py-2 text-sm font-medium;
+    display: block;
+    text-decoration: none;
+  }
+
+  .megamenu__nav-link:hover,
+  .megamenu__nav-link:focus,
+  .megamenu__nav-link.megamenu--hover,
+  .megamenu__nav-link.megamenu--focus {
+    @apply bg-base-200;
+  }
+
+  /* Caret icon for expanded items */
+  .megamenu__menu-item--expanded > .megamenu__nav-link::after {
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: 0.375rem;
+    vertical-align: middle;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+
+  .megamenu__nav-link.megamenu--open::after {
+    transform: rotate(-135deg) translateY(-2px);
+  }
+
+  /* Submenu panel - hidden by default */
+  .megamenu__sub-nav {
+    @apply bg-base-100 z-50 shadow-lg;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.3s ease-in-out,
+      visibility 0.3s ease-in-out;
+    border-bottom-left-radius: var(--radius-box, 0.5rem);
+    border-bottom-right-radius: var(--radius-box, 0.5rem);
+  }
+
+  .megamenu__sub-nav-inner {
+    overflow: hidden;
+    @apply p-6;
+  }
+
+  /* Open state (applied by JS plugin) */
+  .megamenu__sub-nav.megamenu--open {
+    grid-template-rows: 1fr;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* Panel title */
+  .megamenu__sub-nav-title {
+    @apply mb-4 text-lg font-bold;
+  }
+
+  .megamenu__sub-nav-title a {
+    text-decoration: none;
+  }
+
+  /* Submenu list */
+  .megamenu__sub-nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Column variants */
+  .megamenu__sub-nav--cols-2 .megamenu__sub-nav-menu {
+    > li {
+      width: calc(50% - 0.5rem);
+    }
+  }
+
+  .megamenu__sub-nav--cols-3 .megamenu__sub-nav-menu {
+    > li {
+      width: calc(33.333% - 0.667rem);
+    }
+  }
+
+  .megamenu__sub-nav--cols-4 .megamenu__sub-nav-menu {
+    > li {
+      width: calc(25% - 0.75rem);
+    }
+  }
+
+  .megamenu__sub-nav--cols-5 .megamenu__sub-nav-menu {
+    > li {
+      width: calc(20% - 0.8rem);
+    }
+  }
+
+  .megamenu__sub-nav--cols-6 .megamenu__sub-nav-menu {
+    > li {
+      width: calc(16.666% - 0.833rem);
+    }
+  }
+
+  /* Menu item description */
+  .megamenu__description {
+    @apply block text-xs opacity-70;
+  }
+
+  /* Sub-nav group heading */
+  .megamenu__sub-nav-group > a {
+    @apply mb-1 block font-bold;
+    text-decoration: none;
+  }
+
+  /* Nested sub-nav menu */
+  .megamenu__sub-nav-menu--level-2 {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Links within panels */
+  .megamenu__sub-nav a {
+    @apply block rounded-md px-2 py-1 text-sm;
+    text-decoration: none;
+  }
+
+  .megamenu__sub-nav a:hover,
+  .megamenu__sub-nav a:focus {
+    @apply bg-base-200;
+    outline-offset: -2px;
+  }
+
+  /* Mobile: hide the desktop megamenu panels */
+  @media (max-width: 1023px) {
+    .megamenu__sub-nav {
+      position: static;
+      display: grid;
+      grid-template-rows: 0fr;
+      padding-left: 1.25rem;
+
+      &.megamenu--open {
+        grid-template-rows: 1fr;
+        pointer-events: auto;
+        visibility: visible;
+      }
+    }
+
+    .megamenu__sub-nav-menu {
+      display: block;
+    }
+
+    .megamenu__sub-nav--cols-2 .megamenu__sub-nav-menu > li,
+    .megamenu__sub-nav--cols-3 .megamenu__sub-nav-menu > li,
+    .megamenu__sub-nav--cols-4 .megamenu__sub-nav-menu > li,
+    .megamenu__sub-nav--cols-5 .megamenu__sub-nav-menu > li,
+    .megamenu__sub-nav--cols-6 .megamenu__sub-nav-menu > li {
+      width: 100%;
+    }
+  }
+}

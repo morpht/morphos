@@ -1,0 +1,11 @@
+{% set classes = [
+  'join',
+  'join-vertical',
+  'w-full',
+  'has-rhythm',
+  canvas_is_preview ? 'min-h-20',
+] %}
+
+<div{{ attributes.addClass(classes).setAttribute('data-accordion-group-id', canvas_uuid) }}>
+  {% block accordion_items %}{% endblock %}
+</div>

@@ -1,0 +1,78 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: components/view-modes/tile/tile.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+.tile {
+  position: relative;
+  height: 100%;
+  min-height: 180px;
+  aspect-ratio: 3/4;
+}
+
+.tile__link {
+  &:hover {
+    img {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.tile__image {
+  border-radius: var(--radius-box);
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+
+  img {
+    border-radius: var(--radius-box);
+    transition: transform 0.3s;
+  }
+}
+
+.tile__content {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5em 1em;
+  position: absolute;
+  bottom: 0;
+  border-bottom-right-radius: var(--radius-box);
+  border-bottom-left-radius: var(--radius-box);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.75);
+  min-height: 180px;
+  border-radius: var(--radius-box);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 2;
+
+  a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.tile__info {
+  line-height: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.tile__title {
+  font-size: 1.25rem;
+  text-decoration: underline;
+  margin: 0;
+}

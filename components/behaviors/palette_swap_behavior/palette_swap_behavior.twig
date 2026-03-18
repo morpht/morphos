@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Palette Swap Behavior component.
+ *
+ * Swaps the color palette of the parent component when it scrolls into view.
+ * Place this component in the behaviors slot.
+ */
+#}
+{% set duration_value = duration|default(500) %}
+{% set swap_value = swap|default('standard') %}
+{% set threshold_value = threshold|default(50) %}
+
+<div class="palette-swap-behavior"
+  data-palette-swap
+  data-palette-swap-duration="{{ duration_value }}"
+  data-palette-swap-swap="{{ swap_value }}"
+  data-palette-swap-threshold="{{ threshold_value }}">
+</div>

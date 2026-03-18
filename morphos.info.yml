@@ -1,0 +1,29 @@
+name: Morphos
+type: theme
+'base theme': false
+libraries:
+  - morphos/global
+  - morphos/scheme_switcher
+logo: logo.svg
+description: ''
+core_version_requirement: ^11
+generator: 'mercury:1.0.0-beta3'
+regions:
+  skip: Skip
+  alert: Alert
+  top_bar: Top bar
+  header: Header
+  breadcrumb: Breadcrumb
+  content: Content
+  footer: Footer
+  back_to_top: Back to top
+version: 1.0.0
+project: morphos
+datestamp: 1767732539
+
+dependencies:
+  - 'cva:cva'
+
+ckeditor5-stylesheets:
+  - dist/css/ckeditor.css
+  - dist/css/global.css

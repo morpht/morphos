@@ -1,0 +1,1 @@
+.card__image{border-start-start-radius:inherit;border-start-end-radius:inherit;border-end-end-radius:unset;border-end-start-radius:unset;overflow:hidden}.card__title{font-size:1.25rem;margin:0}.card__title a{text-decoration:underline}.card__title a:before{content:"";position:absolute;inset:0}.card__date,.card__info{color:var(--foreground-weak)}

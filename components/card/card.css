@@ -1,0 +1,17 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: components/card/card.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+.card {
+  background-color: var(--background-stronger);
+  border-color: var(--background-weaker);
+  color: var(--foreground);
+}
+
+/* Keep slot wrappers full-width when card-body uses items-center */
+.card-body > .w-full,
+.card-body > .card-actions {
+  align-self: stretch;
+}

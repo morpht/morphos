@@ -1,0 +1,1 @@
+((t,n)=>{t.behaviors.googleTranslate={attach:l=>{n("google_translate",".google-translate",l).forEach(e=>{const a=e.querySelector(".google-translate__element");if(!a)return;const o=e.dataset.language||"en";window.addEventListener("load",g=>{new google.translate.TranslateElement({pageLanguage:o},a)})})}}})(Drupal,once);

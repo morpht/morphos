@@ -1,0 +1,38 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: base/global.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+/*
+ * Import TailwindCSS configure
+ */
+@import '../tailwindcss';
+
+/*
+ * Base
+ */
+@import './base.css';
+@import './typography.css';
+@import './prose.css';
+@import './form.css';
+@import './rhythm.css';
+
+/*
+ * Utilities
+ */
+@import './utilities.css';
+
+/*
+ * Components
+ */
+@import './badge.css';
+@import './breadcrumb.css';
+@import './button.css';
+@import './component.css';
+@import './footer.css';
+@import './megamenu.css';
+@import './overlays.css';
+@import './textures.css';
+@import './views-layout.css';
+@import './views.css';

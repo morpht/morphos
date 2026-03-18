@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Scroll Reveal Behavior component.
+ *
+ * Applies scroll reveal animations to the parent component using
+ * IntersectionObserver. Place this component in the behaviors slot.
+ */
+#}
+{% set delay_value = delay|default(0) %}
+{% set distance_value = distance|default('50px') %}
+{% set duration_value = duration|default(500) %}
+{% set mobile_value = mobile is not defined ? true : mobile %}
+{% set opacity_value = opacity|default(0) %}
+{% set origin_value = origin|default('bottom') %}
+{% set scale_value = scale|default(100) %}
+{% set sequence_interval_value = sequence_interval|default(0) %}
+{% set sequence_selector_value = sequence_selector|default('') %}
+
+<div class="scroll-reveal-behavior"
+  data-scroll-reveal
+  data-scroll-reveal-delay="{{ delay_value }}"
+  data-scroll-reveal-distance="{{ distance_value }}"
+  data-scroll-reveal-duration="{{ duration_value }}"
+  data-scroll-reveal-mobile="{{ mobile_value ? 'true' : 'false' }}"
+  data-scroll-reveal-opacity="{{ opacity_value }}"
+  data-scroll-reveal-origin="{{ origin_value }}"
+  data-scroll-reveal-scale="{{ scale_value }}"
+  data-scroll-reveal-sequence-interval="{{ sequence_interval_value }}"
+  data-scroll-reveal-sequence-selector="{{ sequence_selector_value }}">
+</div>

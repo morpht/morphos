@@ -1,0 +1,68 @@
+{% set body_attributes = create_attribute() %}
+{% set action_attributes = create_attribute() %}
+
+{% set classes = [
+  'card',
+  'relative',
+  style,
+  size,
+  card_side ? 'card-side',
+  palette,
+  texture,
+] %}
+
+{% set body_classes = [
+  'card-body',
+  text_alignment == 'text-start' ? 'text-start',
+  text_alignment == 'items-center' ? 'text-center items-center',
+  center ? 'items-center text-center',
+] %}
+
+{% set action_classes = [
+  'card-actions',
+  actions_alignment == 'justify-start' ? 'justify-start',
+  actions_alignment == 'items-center' ? 'justify-center',
+  actions_alignment == 'justify-end' ? 'justify-end',
+] %}
+
+{% set slot_actions %}{% block actions %}{% endblock %}{% endset %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if image.src is not empty %}
+    <figure>
+      {% include 'canvas:image' ignore missing with {
+        src: image.src,
+        alt: image.alt,
+        class: 'object-cover w-full',
+        width: image.width,
+        height: image.height
+      } only %}
+    </figure>
+  {% endif %}
+
+  <div{{ body_attributes.addClass(body_classes) }}>
+    <div class="w-full">{% block badge_items %}{% endblock %}</div>
+
+    {% if heading %}
+      {{ include('morphos:heading', {
+        heading,
+        level: heading_level|default(3),
+        additional_classes: ['card__title', 'card-title'],
+      },
+        with_context: false
+      ) }}
+    {% endif %}
+
+    {% if body %}
+      <div class="w-full">{{ body }}</div>
+    {% endif %}
+
+    <div class="w-full">{% block body_items %}{% endblock %}</div>
+
+    {% if slot_actions|trim %}
+      <div{{ action_attributes.addClass(action_classes) }}>
+        {{ slot_actions }}
+      </div>
+    {% endif %}
+  </div>
+</div>

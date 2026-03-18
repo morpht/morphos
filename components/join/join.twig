@@ -1,0 +1,9 @@
+{% set classes = [
+  'join',
+  direction,
+  canvas_is_preview ? '[&>*]:min-w-20',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% block items %}{% endblock %}
+</div>

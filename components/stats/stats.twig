@@ -1,0 +1,12 @@
+{% set classes = [
+  'stats',
+  direction,
+  canvas_is_preview ? 'min-h-20',
+  'shadow',
+  'w-full',
+  'has-rhythm',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% block items %}{% endblock %}
+</div>

@@ -1,0 +1,76 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Card - Icon
+group: Display
+description: 'Displays items as an icon card, helpful for informational items.'
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      description: The heading content.
+      type: string
+      examples:
+        - Card heading
+    heading_level:
+      type: number
+      title: Heading level
+      description: Select the heading level.
+      enum: [1, 2, 3, 4, 5, 6]
+      default: 3
+      examples:
+        - 3
+    url:
+      title: URL
+      description: The URL of the item.
+      type: string
+      examples:
+        - http://example.com
+    summary:
+      title: Summary
+      description: Summary text describing the item.
+      type: string
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    icon:
+      type:
+        - string
+        - 'null'
+      title: Icon name
+      description: Phosfer icon name for the item.
+      default: 'rocket'
+      examples:
+        - 'rocket'
+    icon_size:
+      type: string
+      title: Icon size
+      description: Select the icon size.
+      enum:
+        - icon-size--xs
+        - icon-size--sm
+        - icon-size--md
+        - icon-size--lg
+        - icon-size--xl
+      meta:enum:
+        icon-size--xs: Extra small
+        icon-size--sm: Small
+        icon-size--md: Medium
+        icon-size--lg: Large
+        icon-size--xl: Extra large
+      default: icon-size--xl
+      examples:
+        - icon-size--xl
+    icon_align:
+      type: string
+      title: Icon alignment
+      description: Select the icon alignment.
+      enum:
+        - left
+        - center
+      meta:enum:
+        left: Left
+        center: Center
+      default: left
+      examples:
+        - left

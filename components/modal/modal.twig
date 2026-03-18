@@ -1,0 +1,51 @@
+{% set action_content %}
+  {% block action_item %}{% endblock %}
+{% endset %}
+
+{% set box_content %}
+  {% block box_items %}{% endblock %}
+{% endset %}
+
+{% set component_preview %}
+  <div{{ attributes.addClass('modal-component') }}>
+    <div class="modal-component__action">
+      {{ action_content }}
+    </div>
+
+    <div class="min-h-20">
+      {{ box_content }}
+    </div>
+  </div>
+{% endset %}
+
+{% set component_render %}
+  <div {{ attributes.addClass('modal-component').setAttribute('data-modal-placement', placement) }}>
+    <div class="modal-component__action">
+      {{ action_content }}
+    </div>
+
+    <div class="modal-component__dialog modal">
+      <div class="modal-box">
+        <button
+          type="button" class="modal-component__close btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          aria-label="Close">
+          {{ include('morphos:icon', {
+            icon: 'x-circle',
+            icon_size: 'icon-size--sm',
+          },
+            with_context: false
+          ) }}
+        </button>
+        <div class="modal-component__body">
+          {{ box_content }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endset %}
+
+{% if canvas_is_preview %}
+  {{ component_preview }}
+{% else %}
+  {{ component_render }}
+{% endif %}

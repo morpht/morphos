@@ -1,0 +1,115 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: base/form.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+@reference '../tailwindcss';
+
+@layer components {
+  .webform-submission-form {
+    .visually-hidden {
+      @apply sr-only;
+    }
+  }
+
+  fieldset:not(.webform-type-fieldset) .fieldset-wrapper {
+    @apply gap-2;
+  }
+
+  label,
+  .fieldset-legend {
+    @apply mb-2 block text-sm font-semibold md:text-base;
+  }
+
+  * + .form-item,
+  .form-actions {
+    @apply mt-4;
+  }
+
+  .form-checkboxes,
+  .form-radios {
+    * + .form-item {
+      @apply mt-0;
+    }
+  }
+
+  .form-item:focus-within,
+  .fieldgroup:focus-within {
+    > label,
+    .fieldset-legend {
+      color: var(--foreground);
+    }
+  }
+
+  .webform-element-description,
+  .text-count-wrapper {
+    @apply mt-2 text-xs;
+  }
+
+  input,
+  textarea,
+  select {
+    border-color: var(--foreground);
+
+    &::placeholder {
+      color: var(--foreground-weak);
+    }
+  }
+
+  .form-item--error {
+    input,
+    textarea,
+    select {
+      border-color: var(--color-error);
+
+      &:focus {
+        @apply shadow-sm;
+      }
+    }
+  }
+
+  .form-item--error-message {
+    @apply mt-2 mb-4 basis-full text-sm;
+
+    color: var(--color-error);
+  }
+
+  .webform-options-display-one-column {
+    @apply flex flex-col gap-2;
+  }
+
+  .webform-type-checkbox,
+  .webform-type-radio {
+    &.form-item {
+      @apply flex flex-wrap gap-2;
+
+      label {
+        @apply m-0 font-normal;
+      }
+    }
+  }
+
+  .progress-text {
+    @apply text-inherit!;
+  }
+
+  .form-required-indicator {
+    @apply text-sm;
+
+    color: var(--color-error);
+  }
+}
+
+@layer utilities.daisy.l1.l2.l3 {
+  .label {
+    color: var(--foreground);
+  }
+
+  .textarea:focus,
+  .textarea:focus-within,
+  .input:focus,
+  .input:focus-within {
+    color: var(--foreground-focus);
+  }
+}

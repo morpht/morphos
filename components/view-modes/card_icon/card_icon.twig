@@ -1,0 +1,40 @@
+{% set classes = [
+  'card',
+  'bg-base-100',
+  'shadow-sm',
+  'hover:shadow-md'
+] %}
+
+{% set alignment_classes = icon_align == 'center' ? 'items-center text-center' : 'justify-start' %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div{{ create_attribute().addClass('card-body', alignment_classes) }}>
+    {% if icon %}
+      <div class="card-icon">
+        {% if icon %}
+          {{ include('morphos:icon', {
+            icon,
+            icon_size: icon_size|default('icon-size--xl'),
+          },
+            with_context: false
+          ) }}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if heading %}
+      {% include 'morphos:heading' ignore missing with {
+        heading,
+        level: heading_level|default(3),
+        url,
+        additional_classes: ['card__title', 'card-title'],
+      } only %}
+    {% endif %}
+
+    {% if summary %}
+      <div class="card__summary">
+        {{ summary }}
+      </div>
+    {% endif %}
+  </div>
+</div>

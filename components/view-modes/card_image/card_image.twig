@@ -1,0 +1,43 @@
+{% set classes = [
+  'card',
+  'bg-base-100',
+  'shadow-sm',
+  'hover:shadow-md'
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if image %}
+    <div class="card__image card-image">
+      {{ include('morphos:image', { image: image }, with_context = false) }}
+    </div>
+  {% endif %}
+
+  <div class="card-body">
+    {% if info %}
+      <div class="card__info">
+        {{ info }}
+      </div>
+    {% endif %}
+
+    {% if heading %}
+      {% include 'morphos:heading' ignore missing with {
+        heading,
+        level: heading_level|default(3),
+        url,
+        additional_classes: ['card__title', 'card-title'],
+      } only %}
+    {% endif %}
+
+    {% if summary %}
+      <div class="card__summary">
+        {{ summary }}
+      </div>
+    {% endif %}
+
+    {% if date %}
+      <div class="card__date">
+        {{ date }}
+      </div>
+    {% endif %}
+  </div>
+</div>
