@@ -1,93 +1,44 @@
-{% set icon_pos = icon_position|default('') %}
-{% set is_icon_start = icon_pos != 'icon-position--end' %}
-{% set is_icon_only = shape is not empty %}
+{% set is_icon_start = icon_position == 'icon-position--start' ? true : false %}
+{% set is_icon_only = shape ? true : false %}
 
-{% set icon_element %}
-  {% if icon is not empty %}
-    {{
-      include(
-        '@morphos/components/icon/icon.twig',
-        {
-          icon: icon,
-          weight: 'bold'
-        },
-        with_context: false
-      )
-    }}
+{% set classes = [
+  'btn',
+  color ? color : 'btn-default',
+  display,
+  shape,
+  size,
+  style,
+] %}
+
+{% set icon_content %}
+  {% if icon %}
+    {{ include('morphos:icon', {
+      icon,
+      icon_size: 'icon-size--xs',
+    },
+      with_context: false
+    ) }}
   {% endif %}
 {% endset %}
 
-{% set button_cva =
-  html_cva(
-    base: 'btn',
-    variants: {
-      color: {
-        '': 'btn-default',
-        'btn-primary': 'btn-primary',
-        'btn-secondary': 'btn-secondary',
-        'btn-accent': 'btn-accent',
-        'btn-neutral': 'btn-neutral',
-        'btn-info': 'btn-info',
-        'btn-success': 'btn-success',
-        'btn-warning': 'btn-warning',
-        'btn-error': 'btn-error'
-      },
-      style: {
-        'btn-outline': 'btn-outline',
-        'btn-dash': 'btn-dash',
-        'btn-soft': 'btn-soft',
-        'btn-ghost': 'btn-ghost',
-        'btn-link': 'btn-link'
-      },
-      size: {
-        'btn-xs': 'btn-xs',
-        'btn-sm': 'btn-sm',
-        'btn-md': 'btn-md',
-        'btn-lg': 'btn-lg',
-        'btn-xl': 'btn-xl'
-      },
-      shape: {
-        'btn-square': 'btn-square',
-        'btn-circle': 'btn-circle'
-      },
-      display: {
-        'btn-wide': 'btn-wide',
-        'btn-block': 'btn-block'
-      }
-    }
-  )
-%}
+{% set button_content %}
+  {{ is_icon_start ? icon_content }}
+  {% if not is_icon_only %}
+    {{ text }}
+  {% endif %}
+  {{ not is_icon_start ? icon_content }}
+{% endset %}
 
-{% set button_classes =
-  button_cva.apply({
-    color: color|default(''),
-    style: style|default(''),
-    size: size|default(''),
-    shape: shape|default(''),
-    display: display|default('')
-  })
-%}
-
-{% set btn_attributes = create_attribute().addClass(button_classes) %}
-{% if label is not empty %}
-  {% set btn_attributes = btn_attributes.setAttribute('aria-label', label) %}
-{% endif %}
-
-{% if url is not empty %}
-  {% set btn_attributes = btn_attributes.setAttribute('href', url) %}
-  <a {{ btn_attributes }}>
-    {{ is_icon_start ? icon_element }}
-    {% if not is_icon_only %}
-      {{ text }}
-    {% endif %}
-    {{ not is_icon_start ? icon_element }}
+{% if url %}
+  <a{{ attributes
+    .addClass(classes, additional_classes)
+    .setAttribute('href', url)
+    .setAttribute('aria-label', label) }}>
+    {{ button_content }}
   </a>
 {% else %}
-  <button {{ btn_attributes }}>
-    {{ is_icon_start ? icon_element }}
-    {% if not is_icon_only %}
-      {{ text }}
-    {% endif %}
-    {{ not is_icon_start ? icon_element }}
+  <button{{ attributes.addClass(classes, additional_classes)
+    .setAttribute('aria-label', label) }}>
+    {{ button_content }}
   </button>
 {% endif %}

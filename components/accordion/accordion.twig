@@ -1,30 +1,20 @@
-{% set accordion_cva =
-  html_cva(
-    base: 'collapse join-item bg-base-100 border border-base-300',
-    variants: {
-      icon: {
-        'collapse-plus': 'collapse-plus',
-        'collapse-arrow': 'collapse-arrow'
-      }
-    }
-  )
-%}
-
-{% set accordion_classes =
-  accordion_cva.apply({
-    icon: icon|default('collapse-plus')
-  })
-%}
-
-{% set is_open = force|default('') == 'collapse-open' %}
-
 {% set content_attributes = create_attribute() %}
+
+{% set classes = [
+  'collapse',
+  'join-item',
+  'bg-base-100',
+  'border',
+  'border-base-300',
+  icon ? icon : 'collapse-plus',
+] %}
+
 {% set content_classes = [
   'collapse-content',
   prose_size ? 'prose ' ~ prose_size,
 ] %}
 
-<details class="{{ accordion_classes }}" {{ is_open ? 'open' : '' }} {{ attributes }}>
+<details{{ attributes.addClass(classes).setAttribute('open', force == 'collapse-open' ? true : null) }}>
   <summary class="collapse-title font-semibold">{{ title }}</summary>
   <div{{ content_attributes.addClass(content_classes) }}>
     {{ content }}

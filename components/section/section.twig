@@ -13,10 +13,10 @@
 {% set slot_backgrounds %}{% block backgrounds %}{% endblock %}{% endset %}
 {% set slot_behaviors %}{% block behaviors %}{% endblock %}{% endset %}
 
-{% set is_header_items_render = slot_header_items|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim ? true : false %}
+{% set is_header_items_render = slot_header_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim ? true : false %}
 {% set is_header_render = is_header_items_render or (heading and not hide_heading) or intro ? true : false %}
-{% set is_main_items_render = slot_main_items|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
-{% set is_footer_items_render = slot_footer_items|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+{% set is_main_items_render = slot_main_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
+{% set is_footer_items_render = slot_footer_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
 {% set is_footer_render =  is_footer_items_render or (readmore_url and readmore_text) ? true : false %}
 
 {% set margin = [
@@ -293,7 +293,7 @@
       </div>
     </div>
 
-    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__backgrounds">
         {{ slot_backgrounds }}
       </div>
@@ -303,7 +303,7 @@
       <div{{ overlay_attributes.addClass('component__overlay', overlay) }}></div>
     {% endif %}
 
-    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__behaviors">
         {{ slot_behaviors }}
       </div>

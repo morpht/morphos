@@ -65,7 +65,7 @@
 ]|merge(padding) %}
 
 {% set is_single_column = layout == 'layout--12' ? true : false %}
-{% set is_aside_render = slot_side|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim ? true : false %}
+{% set is_aside_render = slot_side|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim ? true : false %}
 
 {% set content_classes = [
   'layout__content',
@@ -152,13 +152,13 @@
           </div>
         {% endif %}
       {% endif %}
-      {% if slot_bottom|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+      {% if slot_bottom|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
         <div{{ bottom_attributes.addClass(bottom_classes) }}>
           {{ slot_bottom }}
         </div>
       {% endif %}
     </div>
-    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__backgrounds">
         {{ slot_backgrounds }}
       </div>
@@ -166,7 +166,7 @@
     {% if overlay %}
       <div{{ overlay_attributes.addClass('component__overlay', overlay) }}></div>
     {% endif %}
-    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__behaviors">
         {{ slot_behaviors }}
       </div>

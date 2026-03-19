@@ -77,7 +77,7 @@
     <div{{ content_attributes.addClass(content_classes) }}>
       {{ slot_items }}
     </div>
-    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__backgrounds">
         {{ slot_backgrounds }}
       </div>
@@ -85,7 +85,7 @@
     {% if overlay %}
       <div{{ overlay_attributes.addClass('component__overlay', overlay) }}></div>
     {% endif %}
-    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div>')|trim %}
+    {% if slot_behaviors|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__behaviors">
         {{ slot_behaviors }}
       </div>

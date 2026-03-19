@@ -1,42 +1,12 @@
-{% set is_preview = canvas_is_preview ? 'yes' : 'no' %}
+{% set classes = [
+  'tabs',
+  'has-rhythm',
+  placement,
+  size,
+  style,
+  canvas_is_preview ? 'min-h-20',
+] %}
 
-{% set tabs_cva =
-  html_cva(
-    base: 'tabs has-rhythm',
-    variants: {
-      style: {
-        'tabs-box': 'tabs-box',
-        'tabs-border': 'tabs-border',
-        'tabs-lift': 'tabs-lift'
-      },
-      size: {
-        'tabs-xs': 'tabs-xs',
-        'tabs-sm': 'tabs-sm',
-        'tabs-md': 'tabs-md',
-        'tabs-lg': 'tabs-lg',
-        'tabs-xl': 'tabs-xl'
-      },
-      placement: {
-        'tabs-top': 'tabs-top',
-        'tabs-bottom': 'tabs-bottom'
-      },
-      preview: {
-        yes: 'min-h-20',
-        no: ''
-      }
-    }
-  )
-%}
-
-{% set tabs_classes =
-  tabs_cva.apply({
-    style: style|default(''),
-    size: size|default(''),
-    placement: placement|default(''),
-    preview: is_preview
-  })
-%}
-
-<div class="{{ tabs_classes }}" data-tabs-id="{{ canvas_uuid }}" {{ attributes }}>
+<div{{ attributes.addClass(classes).setAttribute('data-tabs-id', canvas_uuid) }}>
   {% block items %}{% endblock %}
 </div>
