@@ -1,5 +1,6 @@
 {% set classes = [
   'card',
+  'card--image',
   'bg-base-100',
   'shadow-sm',
   'hover:shadow-md'
@@ -7,12 +8,12 @@
 
 <div{{ attributes.addClass(classes) }}>
   {% if image %}
-    <div class="card__image card-image">
+    <div class="card__image">
       {{ include('morphos:image', { image: image }, with_context = false) }}
     </div>
   {% endif %}
 
-  <div class="card-body">
+  <div class="card__body card-body">
     {% if info %}
       <div class="card__info">
         {{ info }}
@@ -29,7 +30,7 @@
     {% endif %}
 
     {% if summary %}
-      <div class="card__summary">
+      <div class="card__content">
         {{ summary }}
       </div>
     {% endif %}

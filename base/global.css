@@ -24,11 +24,13 @@
 @import './utilities.css';
 
 /*
- * Components
+ * Base components and view modes
  */
 @import './badge.css';
 @import './breadcrumb.css';
 @import './button.css';
+@import './card.css';
+@import './teaser.css';
 @import './component.css';
 @import './footer.css';
 @import './megamenu.css';

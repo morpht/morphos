@@ -103,7 +103,7 @@
   {% if background_image.src or featured_image.src %}
     <div class="component__backgrounds">
       {% if featured_image.src %}
-        <div class="hidden lg:block! absolute right-0 top-0 bottom-0 w-full lg:max-w-[40%] 2xl:max-w-[46%] z-2">
+        <div class="hidden lg:block! absolute right-0 top-0 bottom-0 w-full lg:max-w-[40%] 2xl:max-w-[33%] z-2">
           {% include 'canvas:image' ignore missing with {
             src: featured_image.src,
             alt: featured_image.alt,

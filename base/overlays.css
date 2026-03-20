@@ -15,7 +15,7 @@
   background: linear-gradient(
     to right,
     var(--background-090) 0%,
-    var(--background-070) 70%,
+    var(--background-050) 70%,
     transparent 100%
   );
 }
@@ -24,7 +24,7 @@
   background: linear-gradient(
     to left,
     var(--background-090) 0%,
-    var(--background-070) 70%,
+    var(--background-050) 70%,
     transparent 100%
   );
 }
@@ -34,7 +34,7 @@
   background: linear-gradient(
     to left,
     var(--background-090) 0%,
-    var(--background-070) 30%,
+    var(--background-050) 70%,
     transparent 100%
   );
 }
@@ -43,7 +43,7 @@
   background: linear-gradient(
     to right,
     var(--background-090) 0%,
-    var(--background-070) 30%,
+    var(--background-050) 70%,
     transparent 100%
   );
 }

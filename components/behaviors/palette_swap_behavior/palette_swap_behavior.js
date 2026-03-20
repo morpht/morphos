@@ -71,6 +71,12 @@
             return;
           }
 
+          // Skip if media query is set and doesn't match
+          const mediaQuery = trigger.dataset.behaviorMediaQuery || '';
+          if (mediaQuery && !window.matchMedia(mediaQuery).matches) {
+            return;
+          }
+
           // Get configuration from data attributes
           const config = {
             duration: parseInt(trigger.dataset.paletteSwapDuration, 10) || 500,

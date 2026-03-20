@@ -1,12 +1,13 @@
 {% set classes = [
   'card',
+  'card--simple',
   'bg-base-100',
   'shadow-sm',
   'hover:shadow-md'
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div class="card-body">
+  <div class="card__body card-body">
     {% if info %}
       <div class="card__info">
         {{ info }}
@@ -23,13 +24,13 @@
     {% endif %}
 
     {% if summary %}
-      <div class="card__summary">
+      <div class="card__content">
         {{ summary }}
       </div>
     {% endif %}
 
     {% if date %}
-      <div class="card__date text-sm">
+      <div class="card__date">
         {{ date }}
       </div>
     {% endif %}

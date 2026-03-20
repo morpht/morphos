@@ -50,7 +50,7 @@
         const speed = wrap.dataset.parallaxSpeed
           ? parseInt(wrap.dataset.parallaxSpeed, 10) / 100
           : 1.5;
-        const mediaQuery = wrap.dataset.parallaxMedia || '';
+        const mediaQuery = wrap.dataset.backgroundMediaQuery || '';
 
         /**
          * Initialize Jarallax on the wrapper element.
@@ -60,6 +60,7 @@
           if (wrap._jarallaxActive) {
             return;
           }
+          wrap.style.display = '';
           jarallax(wrap, {
             imgElement: img,
             speed,
@@ -76,6 +77,7 @@
           }
           jarallax(wrap, 'destroy');
           wrap._jarallaxActive = false;
+          wrap.style.display = 'none';
         };
 
         // Handle media query: only init when query matches.
@@ -93,6 +95,9 @@
           // Initial check.
           if (mql.matches) {
             initJarallax();
+          } else {
+            // Hide component until media query matches.
+            wrap.style.display = 'none';
           }
 
           mql.addEventListener('change', handleMediaChange);

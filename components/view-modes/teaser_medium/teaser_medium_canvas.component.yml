@@ -17,7 +17,7 @@ props:
         - string
         - 'null'
       title: Date
-      description: The most relevent date for the item.
+      description: The most relevant date for the item.
       examples:
         - 13.01.2026
     heading:
@@ -53,7 +53,3 @@ props:
       title: Image
       description: Image depicting the item.
       type: object
-libraryOverrides:
-  css:
-    component:
-      ../../../dist/css/teaser_medium.css: { minified: true }

@@ -59,5 +59,8 @@ props:
       title: Media query
       description: Define media query to control the application of the background.
 libraryOverrides:
+  js:
+    image_background.js: {}
   dependencies:
-    - morphos/background_media_query
+    - core/drupal
+    - core/once

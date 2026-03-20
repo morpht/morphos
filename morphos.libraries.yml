@@ -143,13 +143,6 @@ accessible_megamenu_library:
   dependencies:
     - core/jquery
 
-background_media_query:
-  js:
-    lib/background-media-query.js: {}
-  dependencies:
-    - core/drupal
-    - core/once
-
 scheme_switcher:
   version: 1.x
   header: true

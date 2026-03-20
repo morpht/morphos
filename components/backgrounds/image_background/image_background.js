@@ -1,11 +1,11 @@
 /*!
  * Project Name: Morphos (morpht/morphos)
- * File: lib/background-media-query.js
+ * File: components/backgrounds/image_background/image_background.js
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
 /**
- * Background media query JavaScript.
+ * Image background JavaScript.
  *
  * Shows or hides background elements based on a CSS media query.
  * Works with any background type that outputs a
@@ -29,7 +29,7 @@
     }
   };
 
-  Drupal.behaviors.backgroundMediaQuery = {
+  Drupal.behaviors.imageBackground = {
     attach: (context) => {
       // Skip in Canvas editor mode.
       if (isCanvasEditor()) {
@@ -38,7 +38,7 @@
 
       once(
         'background-media-query',
-        '[data-background-media-query]',
+        '.bg-image-wrap[data-background-media-query]',
         context,
       ).forEach((el) => {
         const mediaQuery = el.dataset.backgroundMediaQuery;

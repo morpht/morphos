@@ -75,8 +75,13 @@
               trigger.dataset.scrollRevealSequenceSelector || '',
           };
 
-          // Skip if mobile is disabled and we're on mobile
-          if (!config.mobile && isMobile()) {
+          // Check media query (takes precedence over mobile setting)
+          const mediaQuery = trigger.dataset.behaviorMediaQuery || '';
+          if (mediaQuery) {
+            if (!window.matchMedia(mediaQuery).matches) {
+              return;
+            }
+          } else if (!config.mobile && isMobile()) {
             return;
           }
 

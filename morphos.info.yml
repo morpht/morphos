@@ -7,7 +7,6 @@ libraries:
 logo: logo.svg
 description: ''
 core_version_requirement: ^11
-generator: 'mercury:1.0.0-beta3'
 regions:
   skip: Skip
   alert: Alert

@@ -1,16 +1,25 @@
+{% set body_attributes = create_attribute() %}
+
+{% set alignment_classes = icon_align == 'center' ? 'items-center text-center' : 'justify-start' %}
+
 {% set classes = [
   'card',
+  'card--icon',
   'bg-base-100',
   'shadow-sm',
   'hover:shadow-md'
 ] %}
 
-{% set alignment_classes = icon_align == 'center' ? 'items-center text-center' : 'justify-start' %}
+{% set body_classes = [
+  'card__body',
+  'card-body',
+  alignment_classes,
+] %}
 
 <div{{ attributes.addClass(classes) }}>
-  <div{{ create_attribute().addClass('card-body', alignment_classes) }}>
+  <div{{ body_attributes.addClass(body_classes) }}>
     {% if icon %}
-      <div class="card-icon">
+      <div class="card__icon">
         {% if icon %}
           {{ include('morphos:icon', {
             icon,
@@ -32,7 +41,7 @@
     {% endif %}
 
     {% if summary %}
-      <div class="card__summary">
+      <div class="card__content">
         {{ summary }}
       </div>
     {% endif %}

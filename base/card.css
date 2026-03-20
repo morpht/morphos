@@ -1,0 +1,46 @@
+/*!
+ * Project Name: Morphos (morpht/morphos)
+ * File: base/card.css
+ * Copyright (c) 2026 Morpht Pty Ltd
+ */
+
+.card {
+  background-color: var(--background-stronger);
+  border-color: var(--background-weaker);
+  color: var(--foreground);
+}
+
+.card__title {
+  font-size: 1.25rem;
+  margin: 0;
+
+  a {
+    text-decoration: underline;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+}
+
+.card__image {
+  border-start-start-radius: inherit;
+  border-start-end-radius: inherit;
+  border-end-end-radius: unset;
+  border-end-start-radius: unset;
+  overflow: hidden;
+}
+
+.card__info,
+.card__date {
+  color: var(--foreground-weak);
+}
+
+.card__date {
+  margin-top: 0.5rem;
+}

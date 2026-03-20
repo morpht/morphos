@@ -1,17 +1,19 @@
 <div{{ attributes.addClass('title') }}>
-  <h{{ heading_level|default(3) }} class="title__title">
+  <div class="title__title">
     {% if url %}
-      <a href="{{ url }}">
+      <a href="{{ url }}" class="title__link">
         {{ heading }}
         {{ include('morphos:icon', {
-          icon: 'arrow-right',
+          icon: 'caret-circle-right',
           icon_size: 'icon-size--sm',
         },
           with_context: false
         ) }}
       </a>
     {% else %}
-      {{ heading }}
+      <div class="title__label">
+        {{ heading }}
+      </div>
     {% endif %}
-  </h{{- heading_level|default(3) -}}>
+  </div>
 </div>

@@ -16,13 +16,9 @@
       </div>
     {% endif %}
     {% if heading %}
-      {{ include('morphos:heading', {
-        heading,
-        level: heading_level|default(3),
-        additional_classes: 'tile__title',
-      },
-        with_context: false
-      ) }}
+      <div class="tile__title">
+        {{ heading }}
+      </div>
     {% endif %}
   </div>
 {% endset %}

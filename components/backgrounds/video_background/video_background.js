@@ -188,7 +188,7 @@
       once('video-background-init', '[data-video-background]', context).forEach(
         (wrapper) => {
           const url = wrapper.dataset.videoBackgroundUrl || '';
-          const mediaQuery = wrapper.dataset.videoBackgroundMediaQuery || '';
+          const mediaQuery = wrapper.dataset.backgroundMediaQuery || '';
 
           if (!url) {
             return;

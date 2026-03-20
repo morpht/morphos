@@ -12,6 +12,8 @@
 }
 
 .tile__link {
+  text-decoration: none;
+
   &:hover {
     img {
       transform: scale(1.15);
@@ -74,5 +76,6 @@
 .tile__title {
   font-size: 1.25rem;
   text-decoration: underline;
+  font-weight: bold;
   margin: 0;
 }

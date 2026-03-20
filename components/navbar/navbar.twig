@@ -40,7 +40,7 @@
 {% set component_render %}
   <nav{{ attributes.addClass(classes) }}>
     <div{{ navbar_container_attributes.addClass(container_classes) }}>
-      {% if slot_start|render|striptags('<drupal-render-placeholder><figure><img><div>')|trim %}
+      {% if slot_start|render|striptags('<drupal-render-placeholder><figure><img>')|trim %}
         <div class="navbar__start">
           {{ slot_start }}
         </div>

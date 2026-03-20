@@ -4,20 +4,8 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
-.card__title {
-  font-size: 1.25rem;
-  margin: 0;
-
-  a {
-    text-decoration: underline;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
+.card--icon {
+  .card__icon {
+    margin-bottom: 0.5rem;
   }
 }

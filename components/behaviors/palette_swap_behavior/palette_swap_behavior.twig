@@ -10,10 +10,12 @@
 {% set duration_value = duration|default(500) %}
 {% set swap_value = swap|default('standard') %}
 {% set threshold_value = threshold|default(50) %}
+{% set media_query_value = media_query|default('') %}
 
 <div class="palette-swap-behavior"
   data-palette-swap
   data-palette-swap-duration="{{ duration_value }}"
   data-palette-swap-swap="{{ swap_value }}"
-  data-palette-swap-threshold="{{ threshold_value }}">
+  data-palette-swap-threshold="{{ threshold_value }}"
+  data-behavior-media-query="{{ media_query_value }}">
 </div>

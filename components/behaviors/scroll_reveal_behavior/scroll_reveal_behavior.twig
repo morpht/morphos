@@ -16,6 +16,7 @@
 {% set scale_value = scale|default(100) %}
 {% set sequence_interval_value = sequence_interval|default(0) %}
 {% set sequence_selector_value = sequence_selector|default('') %}
+{% set media_query_value = media_query|default('') %}
 
 <div class="scroll-reveal-behavior"
   data-scroll-reveal
@@ -27,5 +28,6 @@
   data-scroll-reveal-origin="{{ origin_value }}"
   data-scroll-reveal-scale="{{ scale_value }}"
   data-scroll-reveal-sequence-interval="{{ sequence_interval_value }}"
-  data-scroll-reveal-sequence-selector="{{ sequence_selector_value }}">
+  data-scroll-reveal-sequence-selector="{{ sequence_selector_value }}"
+  data-behavior-media-query="{{ media_query_value }}">
 </div>

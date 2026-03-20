@@ -6,7 +6,7 @@
 
 @reference "../tailwindcss";
 
-/* View Grid Component */
+/* Views component */
 @layer components {
   .views-layout {
     /* Remove list styling and padding when ul is used as grid container */
@@ -40,7 +40,27 @@
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6;
   }
 
+  /* Read more */
   .views-readmore {
     @apply flex justify-end;
+  }
+
+  /* Modifier */
+  .views-layout--no-gap {
+    > ul {
+      @apply gap-0;
+    }
+  }
+
+  .views-layout--no-column-gap {
+    > ul {
+      @apply gap-x-0;
+    }
+  }
+
+  .views-layout--no-row-gap {
+    > ul {
+      @apply gap-y-0;
+    }
   }
 }

@@ -152,7 +152,3 @@ slots:
   actions:
     title: Actions
     description: Add button items.
-libraryOverrides:
-  css:
-    component:
-      ../../dist/css/card.css: { minified: true }
