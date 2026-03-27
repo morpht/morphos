@@ -46,20 +46,10 @@
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
-  {% if page.skip %}
-    <div class="page__skip">
-      {{ page.skip }}
-    </div>
-  {% endif %}
-
-  {% if page.alert %}
-    <div class="page__alert">
-      {{ page.alert }}
-    </div>
-  {% endif %}
-
-  {% if page.top_bar %}
+  {% if page.skip or page.alert or page.top_bar %}
     <div class="page__top">
+      {{ page.skip }}
+      {{ page.alert }}
       {{ page.top_bar }}
     </div>
   {% endif %}
@@ -79,7 +69,7 @@
   </footer>
 
   {% if page.back_to_top %}
-    <div class="page_bottom">
+    <div class="page__bottom">
       {{ page.back_to_top }}
     </div>
   {% endif %}

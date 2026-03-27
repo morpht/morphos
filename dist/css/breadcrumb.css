@@ -1,1 +1,1 @@
-.breadcrumbs a{color:var(--foreground)}.breadcrumbs li+li:before{opacity:1;border-color:var(--foreground);border-top:2px solid;border-right:2px solid}
+.breadcrumbs li+li:before{opacity:1;border-color:var(--foreground-weak)}

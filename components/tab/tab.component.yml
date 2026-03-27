@@ -10,15 +10,15 @@ props:
       title: Label
       description: Label the tab content.
       examples:
-        - 'Tab label'
+        - Tab label
     content:
       type: string
       title: Content
-      description: Contnet to display in the tab.
+      description: Content to display in the tab.
       contentMediaType: text/html
       x-formatting-context: block
       examples:
-        - '<p>Tab content goes here.</p>'
+        - <p>Tab content.</p>
     prose_size:
       type: string
       title: Prose size

@@ -127,7 +127,7 @@ function _build_props_variables($skin): string {
   }
 
   // Megamenu columns.
-  $megamenu_cols = $skin['settings']['header-menu-mega-cols'] ?? '4';
+  $megamenu_cols = $skin['settings']['header_menu_megamenu_cols'] ?? '4';
   $variables .= "--megamenu-cols:{$megamenu_cols};";
 
   return $variables;

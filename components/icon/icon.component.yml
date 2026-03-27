@@ -9,10 +9,10 @@ props:
     icon:
       type: string
       title: Icon name
-      description: Spefify the name of the icon.
-      default: 'rocket'
+      description: Specify the name of the icon.
+      default: rocket
       examples:
-        - 'rocket'
+        - rocket
     icon_size:
       type: string
       title: Icon size

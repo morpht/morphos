@@ -84,8 +84,5 @@ props:
       title: Media query
       description: Define media query to control the application of the behavior.
 libraryOverrides:
-  css:
-    component:
-      scroll_reveal_behavior.css: {}
   js:
-    scroll_reveal_behavior.js: {}
+    ../../../dist/js/scroll_reveal_behavior.js: {}

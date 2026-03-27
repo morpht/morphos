@@ -7,12 +7,12 @@
 
 {% if show %}
   <nav{{ attributes.addClass(classes)
-    .setAttribute('data-content-selector', content_selector)
-    .setAttribute('data-heading-levels', heading_levels)
-    .setAttribute('data-ignore-selector', ignore_selector|default('')) }}>
-    {% if heading is not empty %}
+    .setAttribute('data-content-selector', content_selector|default('.layout__content'))
+    .setAttribute('data-heading-levels', heading_levels|default('h2'))
+    .setAttribute('data-ignore-selector', ignore_selector ? ignore_selector : null) }}>
+    {% if heading %}
       {{ include('morphos:heading', {
-        heading: heading,
+        heading,
         level: heading_level|default(2),
       }, with_context: false) }}
     {% endif %}

@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Section
-description: Structural component for adding headings and introdiuctions to content.
+description: Structural component for adding headings and introductions to content.
 group: Container
 status: stable
 props:

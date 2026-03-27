@@ -44,10 +44,11 @@
   <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
   {{ title_suffix }}
 
-  {% embed 'morphos:menu_footer' with {
+  {# Footer menu. #}
+  {{ include('morphos:menu_footer', {
     attributes: create_attribute(),
     items: content['#items'],
-    footer_menu_classes: [],
-  } only %}
-  {% endembed %}
+  },
+    with_context: false
+  ) }}
 </nav>

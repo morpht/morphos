@@ -9,7 +9,7 @@
   position == 'position-end' ? 'justify-end',
   size == 'logo-size--xs' ? 'logo-cloud--xs',
   size == 'logo-size--sm' ? 'logo-cloud--sm',
-  size == 'logo-size--md' ? 'logo-cloud--md',
+  size == 'logo-size--md' or not size ? 'logo-cloud--md',
   size == 'logo-size--lg' ? 'logo-cloud--lg',
   size == 'logo-size--xl' ? 'logo-cloud--xl',
   gap ? 'gap-' ~ gap : 'gap-4',

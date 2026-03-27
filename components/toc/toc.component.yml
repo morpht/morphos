@@ -12,7 +12,7 @@ props:
     show:
       type: boolean
       title: Show
-      description: Enable to show the TOC.
+      description: Enable to show the table of contents.
     heading:
       type: string
       title: Heading
@@ -29,24 +29,24 @@ props:
       type: string
       title: Content selector
       description: Where to grab the headings to build the table of contents.
-      default: '#main-content'
+      default: .layout__content
       examples:
-        - '#main-content'
+        - .layout__content
     heading_levels:
       type: string
       title: Heading levels
-      description: Headings to grab inside of the contentSelector element. e.g. h2, h3
+      description: Headings to include from the content. e.g. h2, h3 (selector).
       default: h2
       examples:
         - h2
     ignore_selector:
       type: string
       title: Ignore selector
-      description: Headings that match the ignoreSelector will be skipped.
+      description: Headings to ignore from the content (selector).
     sticky:
       type: boolean
       title: Sticky
-      description: Enable to make the TOC sticky.
+      description: Enable to make the table of contents sticky.
 libraryOverrides:
   dependencies:
     - core/drupal

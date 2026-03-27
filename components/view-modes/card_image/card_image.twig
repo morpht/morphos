@@ -1,15 +1,13 @@
 {% set classes = [
   'card',
   'card--image',
-  'bg-base-100',
-  'shadow-sm',
-  'hover:shadow-md'
+  url ? 'card--clickable',
 ] %}
 
 <div{{ attributes.addClass(classes) }}>
   {% if image %}
     <div class="card__image">
-      {{ include('morphos:image', { image: image }, with_context = false) }}
+      {{ include('morphos:image', { image }, with_context = false) }}
     </div>
   {% endif %}
 
@@ -21,12 +19,14 @@
     {% endif %}
 
     {% if heading %}
-      {% include 'morphos:heading' ignore missing with {
+      {{ include('morphos:heading', {
         heading,
         level: heading_level|default(3),
-        url,
+        url: url|default(''),
         additional_classes: ['card__title', 'card-title'],
-      } only %}
+      },
+        with_context: false
+      ) }}
     {% endif %}
 
     {% if summary %}

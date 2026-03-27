@@ -1,33 +1,29 @@
 # Morphos Theme
 
-Morphos is a component-based Drupal theme, providing a modern and flexible starting point for site owners to build scalable and efficient websites using [Drupal Canvas](/project/canvas).
+Morphos is a component-based Drupal theme, providing a modern and flexible starting point for site owners to build scalable and efficient websites using [Drupal Canvas](https://www.drupal.org/project/canvas).
 
 ## Getting started
 
 To use Morphos, you can install it via Composer, like any other Drupal theme. But Morphos is designed to be copied, rather than used as a contributed theme or base theme, and you should not assume that future updates will be compatible with your site.
 
-To create the clone to use for your site, use Drupal core's starter kit tool:
+To clone the theme for your site, copy it into your custom themes directory:
 
 ```shell
-cd drupal/web
-php core/scripts/drupal generate-theme my_theme --name="My Custom Theme" --description="A customized version of Morphos." --starterkit=morphos
+mkdir -p web/themes/custom
+cp -R web/themes/contrib/morphos web/themes/custom/morphos
+git add web/themes/custom/morphos
+composer remove morpht/morphos
 ```
 
-This will create a copy of Morphos called `my_theme`, and place it in `themes/my_theme`. This theme is yours, and you can customize it in any way you see fit!
+This will create a copy of Morphos in `web/themes/custom/morphos`. You can customize it in any way you see fit.
 
-To install it in Drupal, either visit the `/admin/appearance` page, or run `drush theme:enable my_theme` at the command line.
-
-You can then remove the contributed version via Composer with `composer remove drupal/morphos`.
+**Important:** If you are using the default content, do not rename the theme. The components are namespaced to `morphos`, and renaming the theme will break them. You should also ensure that `morpht/morphos` is removed from Composer (as shown above) so that it is not reinstalled or updated, which could conflict with your custom copy.
 
 ### Sub-theming
 
-**Don't create your custom theme as a sub-theme of Morphos.** Morphos is meant to be used as a starter kit, and does not provide backward compatibility. This allows us to rapidly innovate, iterate, and improve. If you create a sub-theme of Morphos, it is likely to break in the future.
+**Don't create your custom theme as a sub-theme of Morphos.** Morphos is designed to be copied directly (as described above), not used as a base theme. It does not provide backward compatibility, which allows us to rapidly innovate, iterate, and improve. If you create a sub-theme of Morphos, it is likely to break in the future.
 
 ## Customizing
-
-### Fonts & colors
-
-To change the fonts or colors in `my_theme`, edit the `theme.css` file. Changes to `theme.css` do not require a CSS rebuild, but you may need to clear the cache.
 
 ### Custom components
 
@@ -35,7 +31,7 @@ Morphos uses [single-directory components](https://www.drupal.org/docs/develop/t
 
 ## Building CSS
 
-Morphos uses [Tailwind](https://tailwindcss.com) to simplify styling by using classes to compose designs directly in the markup.
+Morphos uses [Tailwind CSS](https://tailwindcss.com) and [daisyUI](https://daisyui.com) to simplify styling by using classes to compose designs directly in the markup.
 
 If you want to customize the Tailwind-generated CSS, install the development tooling dependencies by running the following command in your theme's directory:
 
@@ -74,20 +70,3 @@ npm run format:check
 ```
 
 **Note**: Some files are excluded from formatting via `.prettierignore`, such as Drupal's `html.html.twig` template, which contains placeholder tokens that break Prettier's HTML parsing.
-
-## Known issues
-
-Canvas's code components are currently not compatible with Tailwind-based themes like Morphos, and creating a code component will break Morphos's styling. This will be fixed in [#3549628], but for now, here's how to work around it:
-
-1. In Canvas's in-browser code editor, open the Global CSS tab.
-2. Paste the contents of your custom theme's `theme.css` into the code editor. It must be at the top.
-3. Paste the contents of your custom theme's `main.css` into the code editor, removing all the `@import` statements at the top first. It must come _after_ the contents of `theme.css`.
-4. Save the global CSS.
-
-## Getting help
-
-If you have trouble or questions, please [visit the issue queue](https://www.drupal.org/project/issues/morphos?categories=All) or find us on [Drupal Slack](https://www.drupal.org/community/contributor-guide/reference-information/talk/tools/slack), in the `#drupal-cms-support` channel.
-
-## Roadmap
-
-Morphos is under active development. Planned improvements include more components, better customization options, and [Storybook support](https://www.drupal.org/project/morphos/issues/3562711). If you want to contribute to Morphos, check out the `#drupal-cms-development` channel in Drupal Slack.

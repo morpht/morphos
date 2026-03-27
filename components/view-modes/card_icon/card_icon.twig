@@ -1,13 +1,10 @@
 {% set body_attributes = create_attribute() %}
-
-{% set alignment_classes = icon_align == 'center' ? 'items-center text-center' : 'justify-start' %}
+{% set alignment_classes = icon_align == 'center' ? 'items-center text-center' %}
 
 {% set classes = [
   'card',
   'card--icon',
-  'bg-base-100',
-  'shadow-sm',
-  'hover:shadow-md'
+  url ? 'card--clickable',
 ] %}
 
 {% set body_classes = [
@@ -32,12 +29,14 @@
     {% endif %}
 
     {% if heading %}
-      {% include 'morphos:heading' ignore missing with {
+      {{ include('morphos:heading', {
         heading,
         level: heading_level|default(3),
-        url,
+        url: url|default(''),
         additional_classes: ['card__title', 'card-title'],
-      } only %}
+      },
+        with_context: false
+      ) }}
     {% endif %}
 
     {% if summary %}

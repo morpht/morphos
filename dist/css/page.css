@@ -1,0 +1,1 @@
+.page__main{background-color:var(--background)}[data-footer=sticky] .page__top,[data-footer=sticky] .page__header,[data-footer=sticky] .page__bottom{z-index:2;position:relative}[data-footer=sticky] .page__banner,[data-footer=sticky] .page__main{z-index:1;position:relative}[data-footer=sticky] .page__footer{bottom:calc(var(--spacing,.25rem)*0);position:sticky}

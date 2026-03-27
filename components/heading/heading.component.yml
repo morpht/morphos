@@ -11,7 +11,7 @@ props:
       title: Heading
       description: The heading.
       examples:
-        - Your heading goes here
+        - Heading
     level:
       type: number
       title: Level

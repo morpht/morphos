@@ -13,7 +13,7 @@ props:
       contentMediaType: text/html
       x-formatting-context: block
       examples:
-        - <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique pretium pellentesque semper enim aliquam.</p>
+        - <p>Content.</p>
     prose_size:
       type: string
       title: Prose size

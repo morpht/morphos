@@ -36,13 +36,15 @@
   <div{{ attributes.addClass(classes) }}>
     {% if image.src %}
       <figure class="card__image">
-        {% include 'canvas:image' ignore missing with {
+        {{ include('canvas:image', {
           src: image.src,
           alt: image.alt,
           class: 'object-cover w-full',
           width: image.width,
-          height: image.height
-        } only %}
+          height: image.height,
+        },
+          with_context: false
+        ) }}
       </figure>
     {% endif %}
     <div{{ body_attributes.addClass(body_classes) }}>
@@ -77,13 +79,15 @@
   <div{{ attributes.addClass(classes) }}>
     {% if image.src %}
       <figure class="card__image">
-        {% include 'canvas:image' ignore missing with {
+        {{ include('canvas:image', {
           src: image.src,
           alt: image.alt,
           class: 'object-cover w-full',
           width: image.width,
-          height: image.height
-        } only %}
+          height: image.height,
+        },
+          with_context: false
+        ) }}
       </figure>
     {% endif %}
     <div{{ body_attributes.addClass(body_classes) }}>

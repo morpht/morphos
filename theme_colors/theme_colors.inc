@@ -169,6 +169,17 @@ function _theme_colors(&$form, FormStateInterface $form_state): void {
     '#weight' => -1,
   ];
 
+  // Sub-theme acknowledgement checkbox.
+  $form['definition']['subtheme_acknowledgement'] = [
+    '#type' => 'checkbox',
+    '#title' => t('I understand that Morphos should not be sub-themed'),
+    '#description' => t('Learn how to customize the Morphos theme in the <a href="@url" target="_blank">documentation</a>.', [
+      '@url' => 'https://docs.morpht.com/convivial-gov',
+    ]),
+    '#default_value' => _get("definition.subtheme_acknowledgement") ?? FALSE,
+    '#weight' => -10,
+  ];
+
   // Enable colors feature toggle.
   $form['definition']['enable'] = [
     '#type' => 'checkbox',
@@ -767,23 +778,23 @@ function _theme_colors_typography(&$form_typography, $skin_key): void {
  *   The skin key.
  */
 function _theme_colors_settings(&$form_settings, $skin_key): void {
-  $form_settings['header-menu-style'] = [
+  $form_settings['header_menu_style'] = [
     '#type' => 'select',
     '#title' => t('Header menu style'),
     '#description' => t('The style of the menu displayed in the header region.'),
-    '#default_value' => _get("skins.$skin_key.settings.header-menu-style") ?? 'dropdown',
+    '#default_value' => _get("skins.$skin_key.settings.header_menu_style") ?? 'dropdown',
     '#options' => [
       'simple' => t('Simple'),
       'dropdown' => t('Dropdown'),
-      'mega' => t('Mega'),
+      'megamenu' => t('Megamenu'),
     ],
   ];
 
-  $form_settings['header-menu-mega-cols'] = [
+  $form_settings['header_menu_megamenu_cols'] = [
     '#type' => 'select',
     '#title' => t('Mega menu columns'),
     '#description' => t('The number of columns to show for the mega menu.'),
-    '#default_value' => _get("skins.$skin_key.settings.header-menu-mega-cols") ?? '4',
+    '#default_value' => _get("skins.$skin_key.settings.header_menu_megamenu_cols") ?? '4',
     '#options' => [
       '2' => t('2 columns'),
       '3' => t('3 columns'),
@@ -793,9 +804,16 @@ function _theme_colors_settings(&$form_settings, $skin_key): void {
     ],
     '#states' => [
       'visible' => [
-        ':input[name="skins[' . $skin_key . '][' . $skin_key . '_skin_tabs][settings][header-menu-style]"]' => ['value' => 'mega'],
+        ':input[name="skins[' . $skin_key . '][' . $skin_key . '_skin_tabs][settings][header_menu_style]"]' => ['value' => 'megamenu'],
       ],
     ],
+  ];
+
+  $form_settings['footer_sticky'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Sticky footer'),
+    '#description' => t('Enable to position the footer on the bottom of the page.'),
+    '#default_value' =>  _get("skins.$skin_key.settings.footer_sticky") ?? FALSE,
   ];
 
   $form_settings['apply'] = [

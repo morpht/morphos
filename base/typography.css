@@ -54,11 +54,9 @@
 
   a:not(.btn) {
     color: var(--link);
+    text-decoration: underline;
 
-    &:hover {
-      color: var(--link-hover);
-    }
-
+    &:hover,
     &:focus {
       color: var(--link-hover);
     }

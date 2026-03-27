@@ -5,12 +5,12 @@
  */
 
 /*
- * Import TailwindCSS configure
+ * Import TailwindCSS configuration.
  */
 @import '../tailwindcss';
 
 /*
- * Base
+ * Base styles.
  */
 @import './base.css';
 @import './typography.css';
@@ -19,22 +19,19 @@
 @import './rhythm.css';
 
 /*
- * Utilities
- */
-@import './utilities.css';
-
-/*
- * Base components and view modes
+ * Base components and view modes.
  */
 @import './badge.css';
 @import './breadcrumb.css';
 @import './button.css';
 @import './card.css';
-@import './teaser.css';
 @import './component.css';
 @import './footer.css';
 @import './megamenu.css';
+@import './menu.css';
 @import './overlays.css';
+@import './page.css';
+@import './teaser.css';
 @import './textures.css';
 @import './views-layout.css';
 @import './views.css';

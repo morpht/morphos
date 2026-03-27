@@ -1,7 +1,3 @@
-{# Set default values for props #}
-{% set speed = speed|default(150) %}
-{% set media_query = media_query|default('') %}
-
 {% set classes = [
   'parallax-background',
   'absolute',
@@ -15,7 +11,7 @@
   <div{{ attributes
     .addClass(classes)
     .setAttribute('data-parallax-background', true)
-    .setAttribute('data-parallax-speed', speed)
+    .setAttribute('data-parallax-speed', speed|default(150))
     .setAttribute('data-background-media-query', media_query ? media_query : null) }}>
     <img
       class="jarallax-img"

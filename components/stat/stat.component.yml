@@ -10,25 +10,25 @@ props:
       title: Title
       description: Title of the statistic.
       examples:
-        - 'Total page views'
+        - Revenue
     prefix:
       type: string
       title: Prefix
       description: Prefix content for the value. e.g. $
       examples:
-        - '$'
+        - $
     value:
       type: number
       title: Value
       description: Value to display and animate.
       examples:
-        - 89400
+        - 100
     suffix:
       type: string
       title: Suffix
       description: 'Suffix content for the value. e.g. %'
       examples:
-        - '%'
+        - m
     size:
       type: string
       title: Size
@@ -45,14 +45,12 @@ props:
         stat--md: Medium
         stat--lg: Large
         stat--xl: Extra large
-      examples:
-        - stat--md
     desc:
       type: string
       title: Description
       description: Short description of the statistic.
       examples:
-        - '21% more than last month'
+        - 21% increase
 slots:
   figure:
     title: Figure

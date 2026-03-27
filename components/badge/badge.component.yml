@@ -10,11 +10,11 @@ props:
       title: Label
       description: Label for the badge.
       examples:
-        - 'Badge text'
+        - Badge label
     color:
       type: string
       title: Color
-      description: Select thye badge color.
+      description: Select the badge color.
       enum:
         - badge-primary
         - badge-secondary
@@ -63,8 +63,6 @@ props:
         badge-md: Medium
         badge-lg: Large
         badge-xl: Extra large
-      examples:
-        - badge-md
     icon:
       type: string
       title: Icon
@@ -155,5 +153,3 @@ props:
       meta:enum:
         icon-position--start: Start
         icon-position--end: End
-      examples:
-        - icon-position--start

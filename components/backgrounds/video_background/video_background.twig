@@ -1,7 +1,3 @@
-{# Set default values for props to prevent errors #}
-{% set url = url|default(null) %}
-{% set media_query = media_query|default(null) %}
-
 {% set classes = [
   'video-background',
   'absolute',
@@ -15,7 +11,7 @@
   <div{{ attributes
     .addClass(classes)
     .setAttribute('data-video-background', true)
-    .setAttribute('data-video-background-url', url)
+    .setAttribute('data-video-background-url', url ? url : null)
     .setAttribute('data-background-media-query', media_query ? media_query : null) }}>
   </div>
 {% endif %}

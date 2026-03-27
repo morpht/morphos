@@ -12,7 +12,7 @@ props:
       title: Title
       description: Title of the accordion.
       examples:
-        - 'Accordion title'
+        - Accordion title
     content:
       type: string
       title: Content
@@ -20,7 +20,7 @@ props:
       contentMediaType: text/html
       x-formatting-context: block
       examples:
-        - '<p>Accordion content goes here.</p>'
+        - <p>Accordion content.</p>
     prose_size:
       type: string
       title: Prose size
@@ -40,20 +40,18 @@ props:
     icon:
       type: string
       title: Icon
-      description: Select the icon to use for the accodion.
-      default: collapse-plus
+      description: Select the icon to use for the accordion.
       enum:
         - collapse-plus
         - collapse-arrow
       meta:enum:
         collapse-plus: Plus/Minus
         collapse-arrow: Arrow icon
-      examples:
-        - collapse-plus
+      default: collapse-plus
     force:
       type: string
       title: Force
-      description: Select whether the accodion should be open or closed.
+      description: Select whether the accordion should be open or closed.
       enum:
         - collapse-open
         - collapse-close

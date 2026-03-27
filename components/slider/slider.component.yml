@@ -10,18 +10,14 @@ props:
       type: boolean
       title: Loop
       description: Enable to loop the slider.
-      examples:
-        - false
     navigation:
       type: boolean
       title: Show navigation
       description: Enable to show navigation for the slides.
-      examples:
-        - true
     effect:
       type: string
       title: Transition effect
-      description: Selelct the transition effect of the slides.
+      description: Select the transition effect of the slides.
       enum:
         - slide
         - fade
@@ -36,8 +32,7 @@ props:
         coverflow: Coverflow
         flip: Flip
         cards: Cards
-      examples:
-        - slide
+      default: slide
     direction:
       type: string
       title: Direction
@@ -48,8 +43,7 @@ props:
       meta:enum:
         horizontal: Horizontal
         vertical: Vertical
-      examples:
-        - horizontal
+      default: horizontal
     pagination:
       type: string
       title: Pagination
@@ -62,36 +56,38 @@ props:
         bullets: Bullets
         fraction: Fraction
         progressbar: Progress bar
-      examples:
-        - bullets
+      default: bullets
     speed:
       type: integer
       title: Speed
       description: Enter the speed of the slides in millisecond e.g. 300
-      examples:
-        - 300
+      default: 300
     slides_per_view:
       type: integer
       title: Slides per view
       description: Number of slides visible at the same time.
+      default: 1
       examples:
         - 1
     slides_per_group:
       type: integer
       title: Slides per group
       description: Number of slides to advance per swipe.
+      default: 1
       examples:
         - 1
     space_between:
       type: integer
       title: Space between
       description: Gap (px) between slides.
+      default: 16
       examples:
         - 16
     rows:
       type: integer
       title: Rows
       description: Number of slide rows for multi-row layout. Not compatible with loop mode.
+      default: 1
       examples:
         - 1
     grid_fill:
@@ -104,6 +100,7 @@ props:
       meta:enum:
         column: Column
         row: Row
+      default: column
       examples:
         - column
 slots:

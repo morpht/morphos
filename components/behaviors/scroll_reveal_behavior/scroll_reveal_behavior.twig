@@ -7,27 +7,35 @@
  * IntersectionObserver. Place this component in the behaviors slot.
  */
 #}
-{% set delay_value = delay|default(0) %}
-{% set distance_value = distance|default('50px') %}
-{% set duration_value = duration|default(500) %}
-{% set mobile_value = mobile is not defined ? true : mobile %}
-{% set opacity_value = opacity|default(0) %}
-{% set origin_value = origin|default('bottom') %}
-{% set scale_value = scale|default(100) %}
-{% set sequence_interval_value = sequence_interval|default(0) %}
-{% set sequence_selector_value = sequence_selector|default('') %}
-{% set media_query_value = media_query|default('') %}
 
-<div class="scroll-reveal-behavior"
-  data-scroll-reveal
-  data-scroll-reveal-delay="{{ delay_value }}"
-  data-scroll-reveal-distance="{{ distance_value }}"
-  data-scroll-reveal-duration="{{ duration_value }}"
-  data-scroll-reveal-mobile="{{ mobile_value ? 'true' : 'false' }}"
-  data-scroll-reveal-opacity="{{ opacity_value }}"
-  data-scroll-reveal-origin="{{ origin_value }}"
-  data-scroll-reveal-scale="{{ scale_value }}"
-  data-scroll-reveal-sequence-interval="{{ sequence_interval_value }}"
-  data-scroll-reveal-sequence-selector="{{ sequence_selector_value }}"
-  data-behavior-media-query="{{ media_query_value }}">
-</div>
+{% set classes = [
+  'scroll-reveal-behavior',
+] %}
+
+{% set preview_classes = [
+  'color--alternate',
+  'p-2',
+  'text-center',
+  'text-sm',
+] %}
+
+{% if canvas_is_preview %}
+  <div{{ attributes.addClass(classes, preview_classes) }}>
+    Scroll Reveal Behavior
+  </div>
+{% else %}
+  <div{{ attributes.addClass(classes)
+    .setAttribute('role', 'presentation')
+    .setAttribute('data-scroll-reveal', true)
+    .setAttribute('data-scroll-reveal-delay', delay|default(0))
+    .setAttribute('data-scroll-reveal-distance', distance|default('50px'))
+    .setAttribute('data-scroll-reveal-duration', duration|default(500))
+    .setAttribute('data-scroll-reveal-mobile', mobile is not defined ? true : mobile)
+    .setAttribute('data-scroll-reveal-opacity', opacity|default(0))
+    .setAttribute('data-scroll-reveal-origin', origin|default('bottom'))
+    .setAttribute('data-scroll-reveal-scale', scale|default(100))
+    .setAttribute('data-scroll-reveal-sequence-interval', sequence_interval|default(0))
+    .setAttribute('data-scroll-reveal-sequence-selector', sequence_selector|default(''))
+    .setAttribute('data-behavior-media-query', media_query_value ? media_query_value : null) }}>
+  </div>
+{% endif %}

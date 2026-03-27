@@ -31,7 +31,7 @@
 ] %}
 
 <!DOCTYPE html>
-<html {{ html_attributes.setAttribute('data-scheme', scheme) }}>
+<html{{ html_attributes.setAttribute('data-scheme', scheme).setAttribute('data-footer', footer_sticky ? 'sticky' : null) }}>
   <head>
     <head-placeholder token="{{ placeholder_token }}">
     <title>

@@ -1,1 +1,1 @@
-.card--icon .card__icon{margin-bottom:.5rem}
+.card--icon .card__icon{margin-bottom:calc(var(--spacing,.25rem)*2)}

@@ -12,6 +12,9 @@ morphos.settings:
       type: mapping
       label: 'Definition'
       mapping:
+        subtheme_acknowledgement:
+          type: boolean
+          label: 'Sub-theme acknowledgement'
         enable:
           type: boolean
           label: 'Enable'
@@ -28,6 +31,13 @@ morphos.settings:
             scheme:
               type: string
               label: 'Default scheme'
+    licence:
+      type: mapping
+      label: 'Licence'
+      mapping:
+        licence_accept:
+          type: boolean
+          label: 'Licence accepted'
     skins:
       type: sequence
       label: 'Skins'
@@ -421,12 +431,15 @@ morphos.settings:
             type: mapping
             label: 'Settings'
             mapping:
-              header-menu-style:
+              header_menu_style:
                 type: string
                 label: 'Header menu style'
-              header-menu-mega-cols:
+              header_menu_megamenu_cols:
                 type: string
                 label: 'Mega menu columns'
+              footer_sticky:
+                type: boolean
+                label: 'Sticky footer'
               apply:
                 type: string
                 label: 'Apply'

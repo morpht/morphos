@@ -24,10 +24,14 @@
   .menu {
     @apply m-0;
   }
+
+  a {
+    @apply no-underline;
+  }
 }
 
 .navbar__container {
-  @apply flex flex-wrap items-center justify-between gap-2 lg:gap-4;
+  @apply relative flex flex-wrap items-center justify-between gap-2 lg:gap-4;
 }
 
 .navbar__start,

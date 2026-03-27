@@ -15,8 +15,6 @@ props:
       meta:enum:
         tabs-top: Top
         tabs-bottom: Bottom
-      examples:
-        - tabs-top
     size:
       type: string
       title: Size
@@ -33,8 +31,6 @@ props:
         tabs-md: Medium
         tabs-lg: Large
         tabs-xl: Extra large
-      examples:
-        - tabs-md
     style:
       type: string
       title: Style

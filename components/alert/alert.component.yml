@@ -19,7 +19,7 @@ props:
       contentMediaType: text/html
       x-formatting-context: block
       examples:
-        - <p>Alert message goes here.</p>
+        - <p>Alert message.</p>
     style:
       type: string
       title: Style
@@ -34,7 +34,6 @@ props:
       type: string
       title: Color
       description: Select the color of the alert.
-      default: color--info
       enum:
         - color--info
         - color--success
@@ -45,6 +44,7 @@ props:
         color--success: Success
         color--error: Error
         color--warning: Warning
+      default: color--info
       examples:
         - color--info
     direction:

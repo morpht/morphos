@@ -7,23 +7,27 @@
 
 <figure{{ attributes.setAttribute('tabindex', 0).addClass(classes) }}>
   <div class="diff-item-1" role="img" tabindex="0">
-    {% if item_1.src is not empty %}
-      {% include 'canvas:image' ignore missing with {
+    {% if item_1.src %}
+      {{ include('canvas:image', {
         src: item_1.src,
         alt: item_1.alt,
         width: item_1.width,
-        height: item_1.height
-      } only %}
+        height: item_1.height,
+      },
+        with_context: false
+      ) }}
     {% endif %}
   </div>
   <div class="diff-item-2" role="img">
-    {% if item_2.src is not empty %}
-      {% include 'canvas:image' ignore missing with {
+    {% if item_2.src %}
+      {{ include('canvas:image', {
         src: item_2.src,
         alt: item_2.alt,
         width: item_2.width,
-        height: item_2.height
-      } only %}
+        height: item_2.height,
+      },
+        with_context: false
+      ) }}
     {% endif %}
   </div>
   <div class="diff-resizer"></div>

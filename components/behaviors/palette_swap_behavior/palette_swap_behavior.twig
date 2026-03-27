@@ -7,15 +7,29 @@
  * Place this component in the behaviors slot.
  */
 #}
-{% set duration_value = duration|default(500) %}
-{% set swap_value = swap|default('standard') %}
-{% set threshold_value = threshold|default(50) %}
-{% set media_query_value = media_query|default('') %}
 
-<div class="palette-swap-behavior"
-  data-palette-swap
-  data-palette-swap-duration="{{ duration_value }}"
-  data-palette-swap-swap="{{ swap_value }}"
-  data-palette-swap-threshold="{{ threshold_value }}"
-  data-behavior-media-query="{{ media_query_value }}">
-</div>
+{% set classes = [
+  'palette-swap-behavior',
+] %}
+
+{% set preview_classes = [
+  'color--alternate',
+  'p-2',
+  'text-center',
+  'text-sm',
+] %}
+
+{% if canvas_is_preview %}
+  <div{{ attributes.addClass(classes, preview_classes) }}>
+    Palette Swap Behavior
+  </div>
+{% else %}
+  <div{{ attributes.addClass(classes)
+    .setAttribute('role', 'presentation')
+    .setAttribute('data-palette-swap', true)
+    .setAttribute('data-palette-swap-duration', duration|default(500))
+    .setAttribute('data-palette-swap-swap', swap|default('standard'))
+    .setAttribute('data-palette-swap-threshold', threshold|default(50))
+    .setAttribute('data-behavior-media-query', media_query ? media_query : null) }}>
+  </div>
+{% endif %}

@@ -38,9 +38,7 @@ props:
     media_query:
       type: string
       title: Media query
-      description: Define media query to control the application of the background.
-      examples:
-        - '(min-width:768px)'
+      description: 'Define a media query to control the application of the background, e.g., (min-width: 768px).'
 libraryOverrides:
   dependencies:
     - core/drupal

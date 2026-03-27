@@ -7,12 +7,14 @@
     {% endif %}
 
     {% if heading %}
-      {% include 'morphos:heading' ignore missing with {
+      {{ include('morphos:heading', {
         heading,
         level: heading_level|default(3),
-        url,
+        url: url|default(''),
         additional_classes: 'summary__title',
-      } only %}
+      },
+        with_context: false
+      ) }}
     {% endif %}
 
     {% if summary %}

@@ -9,7 +9,6 @@ use Drupal\Core\Extension\ThemeExtensionList;
 use Drupal\Core\Extension\ThemeSettingsProvider;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\canvas\Entity\ContentTemplate;
-use Drupal\morphos\RenderCallbacks;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -46,17 +45,6 @@ final class ThemeHooks {
   }
 
   /**
-   * Implements hook_element_info_alter().
-   */
-  #[Hook('element_info_alter')]
-  public function alterElementInfo(array &$info): void {
-    $info['component']['#pre_render'][] = [
-      RenderCallbacks::class,
-      'preRenderComponent',
-    ];
-  }
-
-  /**
    * Implements template_preprocess_image_widget().
    */
   #[Hook('preprocess_image_widget')]
@@ -83,6 +71,17 @@ final class ThemeHooks {
 
     // Get default scheme from theme settings.
     $variables['scheme'] = $this->themeSettings->getSetting("definition.default.scheme");
+
+    // Get footer sticky setting.
+    $skins = $this->themeSettings->getSetting('skins');
+    $default_skin = $this->themeSettings->getSetting('definition.default.skin')
+      ?? (is_array($skins) ? array_key_first($skins) : NULL);
+
+    if (!empty($skins) && !empty($default_skin)) {
+      require_once self::$appRoot . '/' . $this->themeList->getPath('morphos') . '/theme_colors/theme_colors_variables.inc';
+      $active_skin = _get_apply_skin($skins) ?? $default_skin;
+      $variables['footer_sticky'] = $skins[$active_skin]['settings']['footer_sticky'] ?? FALSE;
+    }
   }
 
   /**
@@ -166,8 +165,8 @@ final class ThemeHooks {
     require_once self::$appRoot . '/' . $this->themeList->getPath('morphos') . '/theme_colors/theme_colors_variables.inc';
     $active_skin = _get_apply_skin($skins) ?? $default_skin;
 
-    $variables['header_menu_style'] = $skins[$active_skin]['settings']['header-menu-style'] ?? 'dropdown';
-    $variables['megamenu_columns'] = $skins[$active_skin]['settings']['header-menu-mega-cols'] ?? '4';
+    $variables['header_menu_style'] = $skins[$active_skin]['settings']['header_menu_style'] ?? 'dropdown';
+    $variables['megamenu_columns'] = $skins[$active_skin]['settings']['header_menu_megamenu_cols'] ?? '4';
   }
 
 }

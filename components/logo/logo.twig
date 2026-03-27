@@ -23,50 +23,58 @@
 
   <div class="logo__large">
     <div class="logo__image logo__image--light">
-      {% if logo_light.src is not empty %}
-        {% include 'morphos:image' ignore missing with {
+      {% if logo_light.src %}
+        {{ include('morphos:image', {
           image: logo_light,
           width: logo_width,
-          url,
+          url: url|default(''),
           alt: '',
           loading: 'eager',
-        } only %}
+        },
+          with_context: false
+        ) }}
       {% endif %}
     </div>
     <div class="logo__image logo__image--dark">
-      {% if logo_dark.src is not empty %}
-        {% include 'morphos:image' ignore missing with {
+      {% if logo_dark.src %}
+        {{ include('morphos:image', {
           image: logo_dark,
           width: logo_width,
-          url,
+          url: url|default(''),
           alt: '',
           loading: 'eager',
-        } only %}
+        },
+          with_context: false
+        ) }}
       {% endif %}
     </div>
   </div>
 
   <div class="logo__small">
     <div class="logo__image logo__image--light">
-      {% if logo_light_small.src is not empty %}
-        {% include 'morphos:image' ignore missing with {
+      {% if logo_light_small.src %}
+        {{ include('morphos:image', {
           image: logo_light_small,
           width: logo_small_width,
-          url,
+          url: url|default(''),
           alt: '',
-          loading: 'eager'
-        } only %}
+          loading: 'eager',
+        },
+          with_context: false
+        ) }}
       {% endif %}
     </div>
     <div class="logo__image logo__image--dark">
-      {% if logo_dark_small.src is not empty %}
-        {% include 'morphos:image' ignore missing with {
+      {% if logo_dark_small.src %}
+        {{ include('morphos:image', {
           image: logo_dark_small,
           width: logo_small_width,
-          url,
+          url: url|default(''),
           alt: '',
-          loading: 'eager'
-        } only %}
+          loading: 'eager',
+        },
+          with_context: false
+        ) }}
       {% endif %}
     </div>
   </div>

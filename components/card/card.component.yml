@@ -11,7 +11,7 @@ props:
       title: Heading
       description: The heading content.
       examples:
-        - 'This is your card title'
+        - Card title
     heading_level:
       type: number
       title: Heading level
@@ -33,15 +33,11 @@ props:
     center:
       type: boolean
       title: Center
-      description: Centrerthe content in the card.
-      examples:
-        - false
+      description: Center the content in the card.
     card_side:
       type: boolean
       title: Card side
       description: Arrange the card with the image on the side.
-      examples:
-        - false
     text_alignment:
       type: string
       title: Text alignment

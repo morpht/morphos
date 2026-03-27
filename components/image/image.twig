@@ -1,9 +1,7 @@
 {% set image_content %}
   {% if image.src %}
-    {% if width %}
-      {% set aspect_ratio = image.width / image.height %}
-      {% set height = (width / aspect_ratio)|round %}
-    {% endif %}
+    {% set aspect_ratio = image.width / image.height %}
+    {% set height = (width|default(800) / aspect_ratio)|round %}
     {{ include('canvas:image',
       image|merge({
         width: width|default(image.width),
@@ -11,7 +9,7 @@
         alt: alt|default(image.alt),
         class: width ? '' : 'object-cover w-full h-full',
         loading: loading|default('lazy'),
-        sizes: "auto 100vw",
+        sizes: 'auto 100vw',
       }), with_context = false) }}
   {% else %}
     {{ image }}

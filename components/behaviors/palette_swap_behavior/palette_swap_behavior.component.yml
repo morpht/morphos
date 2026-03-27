@@ -46,8 +46,5 @@ props:
       title: Media query
       description: Define media query to control the application of the behavior.
 libraryOverrides:
-  css:
-    component:
-      palette_swap_behavior.css: {}
   js:
-    palette_swap_behavior.js: {}
+    ../../../dist/js/palette_swap_behavior.js: {}

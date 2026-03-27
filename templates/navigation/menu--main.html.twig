@@ -19,19 +19,18 @@
  */
 #}
 
-{% embed 'morphos:menu_dropdown' with {
-  attributes: create_attribute(),
-  items,
+{{ include('morphos:menu_dropdown', {
+  attributes,
+  items: content['#items'],
   show_mobile_toggle: true,
   menu_classes: [
-    'tw-hidden',
-    'lg:flex',
+    'hidden',
+    'lg:flex!',
     'menu-horizontal',
     'px-1',
   ],
   mobile_classes: [
     'menu-sm',
-    'bg-base-100',
     'rounded-box',
     'z-1',
     'mt-3',
@@ -39,6 +38,6 @@
     'p-2',
     'shadow',
   ],
-} only %}
-{% endembed %}
-
+},
+  with_context: false
+) }}

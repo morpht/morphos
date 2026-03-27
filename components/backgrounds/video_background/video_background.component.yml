@@ -8,7 +8,7 @@ props:
     url:
       type: string
       title: URL
-      description: URL of background video. e.g. Youtube URL.
+      description: 'URL of background video. e.g. YouTube URL.'
       examples: ['https://youtu.be/AWLS6nmrVGo']
     opacity:
       type: number
@@ -30,8 +30,7 @@ props:
     media_query:
       type: string
       title: Media query
-      description: Define media query to control the application of the background.
-      examples: ['(min-width:768px)']
+      description: 'Define a media query to control the application of the background, e.g., (min-width: 768px).'
 libraryOverrides:
   dependencies:
     - core/drupal

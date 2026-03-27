@@ -10,8 +10,6 @@ props:
       type: string
       title: Text
       description: Text to display in the divider.
-      examples:
-        - OR
     color:
       type: string
       title: Color

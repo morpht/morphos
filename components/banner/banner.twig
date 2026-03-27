@@ -104,24 +104,28 @@
     <div class="component__backgrounds">
       {% if featured_image.src %}
         <div class="hidden lg:block! absolute right-0 top-0 bottom-0 w-full lg:max-w-[40%] 2xl:max-w-[33%] z-2">
-          {% include 'canvas:image' ignore missing with {
+          {{ include('canvas:image', {
             src: featured_image.src,
             alt: featured_image.alt,
             class: 'object-cover w-full h-full',
             width: featured_image.width,
             height: featured_image.height
-          } only %}
+          },
+            with_context: false
+          ) }}
         </div>
       {% endif %}
       {% if background_image.src %}
         <div class="absolute inset-0 z-1">
-          {% include 'canvas:image' ignore missing with {
+          {{ include('canvas:image', {
             src: background_image.src,
             alt: background_image.alt,
             class: 'object-cover w-full h-full',
             width: background_image.width,
             height: background_image.height
-          } only %}
+          },
+            with_context: false
+          ) }}
         </div>
       {% endif %}
     </div>

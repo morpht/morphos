@@ -32,6 +32,8 @@
  * https://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
  */
 #}
+
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
 {% set classes = [
   'block',
   'block-' ~ configuration.provider|clean_class,
@@ -39,25 +41,22 @@
   'has-rhythm',
 ] %}
 
-{% set heading_id = attributes.id ~ '-menu'|clean_id %}
-
-<nav{{ attributes|without('role', 'aria-labelledby')
-  .addClass(classes)
-  .setAttribute('role', 'navigation')
-  .setAttribute('aria-labelledby', heading_id) }}>
+<nav{{ attributes.addClass(classes).setAttribute('role', 'navigation').setAttribute('aria-labelledby', heading_id) }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {% endif %}
   {{ title_prefix }}
-  <div {{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</div>
+  <div{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</div>
   {{ title_suffix }}
+
   {# Sidebar menu. #}
-  {% embed 'morphos:menu_sidebar' with {
+  {{ include('morphos:menu_sidebar', {
     attributes: create_attribute(),
     items: content['#items'],
     sidebar_classes: [],
     expand_all: configuration.expand_all_items,
-  } only %}
-  {% endembed %}
+  },
+    with_context: false
+  ) }}
 </nav>

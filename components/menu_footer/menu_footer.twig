@@ -24,7 +24,7 @@
           </h3>
         {% endif %}
 
-        {% if item.below is not empty %}
+        {% if item.below %}
           <ul class="list-none flex flex-col gap-2 ps-0">
             {% for child in item.below %}
               <li>

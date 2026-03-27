@@ -9,6 +9,7 @@
     {{ page.content }}
   {% else %}
     {% embed 'morphos:layout' with {
+      attributes: create_attribute(),
       layout: 'layout--7-1-4',
       container: 'container--normal',
       padding_top: '12',

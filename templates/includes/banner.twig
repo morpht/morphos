@@ -2,6 +2,7 @@
 
 <div{{ banner_attributes.addClass(['page__banner', 'color--primary']) }}>
   {% embed 'morphos:banner' with {
+    attributes: create_attribute(),
     title: page_title,
     texture: 'texture--conic-top-start',
     padding_top: '24',

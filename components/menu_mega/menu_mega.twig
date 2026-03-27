@@ -1,18 +1,14 @@
 {% import _self as menus %}
 
-{%
-  set desktop_classes = [
-    'megamenu',
-    'js-megamenu',
-  ]|merge(menu_classes ?: [])
-%}
+{% set desktop_classes = [
+  'megamenu',
+  'js-megamenu',
+]|merge(menu_classes ?: []) %}
 
-{%
-  set mobile_dropdown_classes = [
-    'menu',
-    'dropdown-content',
-  ]|merge(mobile_classes ?: [])
-%}
+{% set mobile_dropdown_classes = [
+  'menu',
+  'dropdown-content',
+]|merge(mobile_classes ?: []) %}
 
 {% set cols = megamenu_columns|default('4') %}
 
@@ -25,7 +21,7 @@
     <div class="dropdown dropdown-end lg:hidden">
       <div tabindex="0" role="button" aria-label="Menu" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
         </svg>
       </div>
       <ul tabindex="-1" class="{{ mobile_dropdown_classes|join(' ') }}">
@@ -33,8 +29,11 @@
           <li>
             {% if item.is_expanded and item.below %}
               <details>
-                <summary>{{ link(item.title, item.url) }}</summary>
+                <summary><span>{{ item.title }}</span></summary>
                 <ul class="p-2">
+                  {# Parent items #}
+                  <li>{{ link(item.title, item.url) }}</li>
+                  {# Child items #}
                   {% for child in item.below %}
                     <li>{{ link(child.title, child.url) }}</li>
                   {% endfor %}
@@ -55,38 +54,34 @@
   {% if items %}
     {% set menu_items %}
       {% for item in items %}
-        {%
-          set classes = [
-            item.is_expanded ? 'megamenu__menu-item--expanded',
-            item.in_active_trail ? 'megamenu__menu-item--active-trail',
-            menu_level == 0 ? 'megamenu__nav-item',
-            menu_level == 1 ? 'megamenu__sub-nav-group',
-          ]
-        %}
+        {% set classes = [
+          item.is_expanded ? 'megamenu__menu-item--expanded',
+          item.in_active_trail ? 'megamenu__menu-item--active-trail',
+          menu_level == 0 ? 'megamenu__nav-item',
+          menu_level == 1 ? 'megamenu__sub-nav-group',
+        ] %}
 
-        <li {{ item.attributes.addClass(classes) }}>
-          {%
-            set link_classes = [
-              menu_level == 0 ? 'megamenu__nav-link',
-              item.in_active_trail ? 'active',
-            ]
-          %}
+        <li{{ item.attributes.addClass(classes) }}>
+          {% set link_classes = [
+            menu_level == 0 ? 'megamenu__nav-link',
+            item.in_active_trail ? 'active',
+          ] %}
           {{ link(item.title, item.url, { 'class': link_classes }) }}
+
           {% if menu_level != 0 and item.original_link.description %}
-            <span class="megamenu__description">{{ item.original_link.description }}</span>
+            <div class="megamenu__description">{{ item.original_link.description }}</div>
           {% endif %}
+
           {% if item.below %}
             {% if menu_level == 0 %}
               <div class="megamenu__sub-nav megamenu__sub-nav--cols-{{ cols }}">
-                <div class="megamenu__sub-nav-inner">
-                  <div class="megamenu__sub-nav-title">
-                    {{ link(item.title, item.url) }}
-                    {% if item.original_link.description %}
-                      <span class="megamenu__description">{{ item.original_link.description }}</span>
-                    {% endif %}
-                  </div>
-                  {{ menus.menu_links(item.below, attributes, menu_level + 1, cols, []) }}
+                <div class="megamenu__sub-nav-title">
+                  {{ link(item.title, item.url) }}
+                  {% if item.original_link.description %}
+                    <span class="megamenu__description">{{ item.original_link.description }}</span>
+                  {% endif %}
                 </div>
+                {{ menus.menu_links(item.below, attributes, menu_level + 1, cols, []) }}
               </div>
             {% else %}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, cols, []) }}

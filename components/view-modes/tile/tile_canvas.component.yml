@@ -12,35 +12,14 @@ props:
       type: string
       examples:
         - Tile heading
-    # heading_level will get remove in morphos v1.1.
-    heading_level:
-      type: number
-      title: (Deprecated) Heading level
-      description: Select the heading level.
-      enum: [1, 2, 3, 4, 5, 6]
-      default: 3
-      examples:
-        - 3
     info:
       title: Info
       description: Info text that describes the type or category of the item.
       type: string
-      examples:
-        - Info
     url:
       title: URL
       description: The URL of the item.
       type: string
-      examples:
-        - http://example.com
-    summary:
-      title: Summary
-      description: Summary text describing the item.
-      type: string
-      contentMediaType: text/html
-      x-formatting-context: block
-      examples:
-        - <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     image:
       $ref: json-schema-definitions://canvas.module/image
       title: Image

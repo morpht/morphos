@@ -1,7 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Image
 description: Canvas version of an image to handle Canvas specific settings.
-status: stable
 group: Element
 props:
   type: object
@@ -25,7 +24,7 @@ props:
       title: Width
       description: Width in pixels.
       type: number
-      examples: [800]
+      default: 800
     alt:
       title: Alt
       description: Alternative text describing the image.
@@ -42,4 +41,4 @@ props:
       meta:enum:
         eager: Eager
         lazy: Lazy
-      examples: [lazy]
+      default: lazy

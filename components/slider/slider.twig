@@ -6,17 +6,17 @@
   </div>
 {% else %}
 {% set config = {
-  loop: loop|default(false),
+  loop,
+  navigation,
   effect: effect|default('slide'),
   direction: direction|default('horizontal'),
   speed: speed|default(300),
   slidesPerView: slides_per_view|default(1),
   slidesPerGroup: slides_per_group|default(1),
-  spaceBetween: space_between|default(0),
+  spaceBetween: space_between|default(16),
   pagination: {
     type: pagination|default('bullets')
   },
-  navigation: navigation|default(true)
 } %}
 
 {% set rows_count = rows|default(1) %}

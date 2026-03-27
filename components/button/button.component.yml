@@ -168,7 +168,7 @@ props:
     shape:
       type: string
       title: Shape
-      description: Select the shape of teh button.
+      description: Select the shape of the button.
       enum:
         - btn-square
         - btn-circle

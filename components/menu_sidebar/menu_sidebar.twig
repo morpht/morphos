@@ -76,6 +76,7 @@
               {{ link(item.title, item.url, {
                 class: [
                   'grow',
+                  'no-underline',
                   item.in_active_trail ? 'menu-active'
                 ]
               }) }}
@@ -112,7 +113,11 @@
             </ul>
           {% else %}
             {{ link(item.title, item.url, {
-              class: item.in_active_trail ? 'menu-active'
+              class: [
+                'grow',
+                'no-underline',
+                item.in_active_trail ? 'menu-active',
+              ]
             }) }}
           {% endif %}
         </li>

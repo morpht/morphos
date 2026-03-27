@@ -5,16 +5,10 @@
  */
 
 .breadcrumbs {
-  a {
-    color: var(--foreground);
-  }
-
   li + li {
     &:before {
       opacity: 1;
-      border-color: var(--foreground);
-      border-top: 2px solid;
-      border-right: 2px solid;
+      border-color: var(--foreground-weak);
     }
   }
 }

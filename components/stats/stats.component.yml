@@ -15,8 +15,6 @@ props:
       meta:enum:
         stats-horizontal: Horizontal
         stats-vertical: Vertical
-      examples:
-        - stats-horizontal
 slots:
   items:
     title: Items
