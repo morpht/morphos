@@ -4,21 +4,21 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
+@reference "../../../tailwindcss";
+
 .title__title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin: 0;
+  @apply m-0 text-[1.25rem] font-bold;
+}
+
+[dir='rtl'] {
+  .title__icon {
+    @apply scale-x-[-1];
+  }
 }
 
 .title__link {
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  @apply flex items-center justify-between gap-4 border-t border-b p-4 no-underline;
+
   border-color: var(--foreground, inherit);
   color: var(--forground, inherit);
 
@@ -27,16 +27,11 @@
     border-color: var(--link, inherit);
     color: var(--link-contrast, inherit);
   }
-
-  span {
-    flex: 1;
-  }
 }
 
 .title__label {
-  padding: 1rem;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  @apply border-t border-b p-4;
+
   border-color: var(--foreground, inherit);
 }
 
@@ -46,7 +41,7 @@
     li + li {
       .title__label,
       .title__link {
-        border-top: none;
+        @apply border-t-0;
       }
     }
   }

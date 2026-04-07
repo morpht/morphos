@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set figure_attributes = create_attribute() %}
 
 {% set classes = [
@@ -7,7 +9,7 @@
 
 {% set figure_classes = [
   'stat-figure',
-  canvas_is_preview ? 'min-h-10 min-w-10',
+  is_preview ? 'min-h-10 min-w-10',
 ] %}
 
 <div{{ attributes.addClass(classes) }}>

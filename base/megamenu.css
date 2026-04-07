@@ -82,6 +82,10 @@
     a {
       @apply text-lg font-bold no-underline;
     }
+
+    .megamenu__description {
+      @apply mt-1 mb-0 text-sm;
+    }
   }
 
   /* Submenu list */
@@ -122,7 +126,7 @@
 
   /* Menu item description */
   .megamenu__description {
-    @apply block text-xs opacity-70;
+    @apply mt-0 mb-2 block px-4 text-xs;
   }
 
   /* Sub-nav group heading */

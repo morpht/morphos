@@ -1,7 +1,9 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set classes = [
   'toc',
   sticky ? 'sticky top-20',
-  canvas_is_preview ? 'min-h-20',
+  is_preview ? 'min-h-20',
   'has-rhythm',
 ] %}
 

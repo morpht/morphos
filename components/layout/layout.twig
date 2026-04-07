@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set container_attributes = create_attribute() %}
 {% set content_attributes = create_attribute() %}
 {% set sidebar_attributes = create_attribute() %}
@@ -47,7 +49,7 @@
 {% set classes = [
   'layout',
   'component',
-  canvas_is_preview ? 'component--preview',
+  is_preview ? 'component--preview',
   palette,
   texture,
 ]|merge(margin) %}
@@ -174,7 +176,7 @@
   </div>
 {% endset %}
 
-{% if canvas_is_preview %}
+{% if is_preview %}
   {{ component_preview }}
 {% else %}
   {{ component_render }}

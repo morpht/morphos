@@ -31,7 +31,7 @@
 }
 
 .navbar__container {
-  @apply relative flex flex-wrap items-center justify-between gap-2 lg:gap-4;
+  @apply relative flex min-h-[4rem] flex-wrap items-center justify-between gap-2 lg:gap-4;
 }
 
 .navbar__start,

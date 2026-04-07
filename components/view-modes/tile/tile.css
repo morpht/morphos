@@ -4,78 +4,44 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
-.tile {
-  position: relative;
-  height: 100%;
-  min-height: 180px;
-  aspect-ratio: 3/4;
-}
+@reference "../../../tailwindcss";
 
-.tile__link {
-  text-decoration: none;
+.tile {
+  @apply relative aspect-[3/4] min-h-[180px] overflow-hidden;
+
+  border-radius: var(--radius-box);
 
   &:hover {
-    img {
-      transform: scale(1.15);
+    .tile__image {
+      @apply scale-115;
     }
   }
 }
 
+.tile__info {
+  @apply text-sm font-bold text-white;
+}
+
+.tile__title {
+  @apply m-0 text-[1.25rem] font-bold text-white;
+}
+
+.tile__link {
+  @apply text-white underline;
+
+  &:after {
+    @apply absolute inset-0 content-[''];
+  }
+}
+
 .tile__image {
-  border-radius: var(--radius-box);
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  z-index: -1;
+  @apply relative transition-transform duration-300;
 
   img {
-    border-radius: var(--radius-box);
-    transition: transform 0.3s;
+    @apply aspect-[3/4] h-full w-full object-cover;
   }
 }
 
 .tile__content {
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  max-height: 100%;
-  width: 100%;
-  overflow: hidden;
-  padding: 1.5em 1em;
-  position: absolute;
-  bottom: 0;
-  border-bottom-right-radius: var(--radius-box);
-  border-bottom-left-radius: var(--radius-box);
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.75);
-  min-height: 180px;
-  border-radius: var(--radius-box);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  z-index: 2;
-
-  a:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-}
-
-.tile__info {
-  line-height: 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-.tile__title {
-  font-size: 1.25rem;
-  text-decoration: underline;
-  font-weight: bold;
-  margin: 0;
+  @apply absolute right-0 bottom-0 left-0 z-1 flex min-h-[180px] flex-col justify-end rounded-b-lg bg-gradient-to-t from-black/70 to-transparent px-4 py-6 text-shadow-lg;
 }

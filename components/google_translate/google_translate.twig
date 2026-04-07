@@ -1,3 +1,4 @@
+{% set is_preview = canvas_is_preview or in_preview %}
 {% set language = language|default('en') %}
 {% set icon = icon|default('globe') %}
 
@@ -15,7 +16,7 @@
       icon_size: 'icon-size--sm',
     }, with_context: false) }}
   </span>
-  {% if canvas_is_preview %}
+  {% if is_preview %}
     <div class="pl-8">Google Translate</div>
   {% else %}
     <div class="google-translate__element"></div>

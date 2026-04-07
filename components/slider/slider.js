@@ -31,7 +31,9 @@
     const desktopSpaceBetween = config.spaceBetween || 0;
     const hasGrid = config.grid && config.grid.rows > 1;
 
-    if (desktopPerView <= 1 && !hasGrid) return {};
+    if (desktopPerView <= 1 && !hasGrid) {
+      return {};
+    }
 
     const tabletPerView = Math.max(1, Math.ceil(desktopPerView / 2));
     const tabletPerGroup = Math.min(desktopPerGroup, tabletPerView);
@@ -88,7 +90,9 @@
    * @param {number} spaceBetween - Gap between rows in pixels.
    */
   const applyGridHeight = (el, rows, spaceBetween) => {
-    if (rows <= 1) return;
+    if (rows <= 1) {
+      return;
+    }
 
     const slides = el.querySelectorAll('.swiper-slide');
     let maxHeight = 0;
@@ -108,7 +112,9 @@
 
   Drupal.behaviors.swiperSlider = {
     attach: (context) => {
-      if (isCanvasEditor()) return;
+      if (isCanvasEditor()) {
+        return;
+      }
 
       once('swiper-init', '.slider', context).forEach((el) => {
         const wrapper = el.querySelector('.swiper-wrapper');

@@ -1,6 +1,8 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set classes = [
   'back-to-top',
-  not canvas_is_preview ? 'fixed bottom-6 right-6 z-50 gap-2 transition-all duration-300 opacity-0 invisible'
+  not is_preview ? 'fixed bottom-6 right-6 rtl:right-[unset] rtl:left-6 z-50 gap-2 transition-all duration-300 opacity-0 invisible'
 ] %}
 
 {% set text = text|default('Back to top') %}

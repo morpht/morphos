@@ -4,34 +4,27 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
+@reference "../../tailwindcss";
+
 .google-translate {
   .goog-te-gadget {
-    font-size: 0;
+    @apply text-[0px];
 
     > span {
-      display: none !important;
+      @apply hidden;
     }
 
     .goog-te-combo {
-      padding-left: 1.75rem;
-      margin: 0;
-      border: 0;
-      max-width: 180px;
+      @apply m-0 max-w-[180px] border-0 pl-7 text-base rtl:pr-7 rtl:pl-0;
+
       color: var(--foreground);
       background: var(--background);
-      font-size: var(--text-base, 1rem);
     }
   }
+}
 
-  #goog-gt-tt,
-  .goog-te-banner-frame {
-    visibility: hidden !important;
-    display: none !important;
-  }
-
-  .goog-text-highlight {
-    box-shadow: none !important;
-    background-color: transparent !important;
-    box-sizing: initial !important;
+[dir='rtl'] {
+  .google-translate .goog-te-combo {
+    direction: rtl;
   }
 }

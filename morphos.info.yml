@@ -16,9 +16,8 @@ regions:
   content: Content
   footer: Footer
   back_to_top: Back to top
-version: 1.1.0
+version: 1.1.1
 project: morphos
-datestamp: 1767732539
 ckeditor5-stylesheets:
   - dist/css/ckeditor.css
   - dist/css/global.css

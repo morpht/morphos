@@ -12,8 +12,10 @@
 #}
 {% set type = element['#type'] %}
 {% set is_boolean = type == 'checkbox' and (element['#attributes']['value'] == 1 or element['#attributes']['value'] == 0) %}
+{% set type_input = ['textfield', 'date', 'webform_time', 'password', 'email', 'number', 'tel', 'url', 'entity_autocomplete'] %}
+
 {% set classes = [
-  type in ['textfield', 'date', 'webform_time', 'password', 'email', 'number', 'tel', 'url', 'entity_autocomplete'] ? 'input',
+  type in type_input ? 'input',
   type == 'range' ? 'range',
   type == 'file' ? 'file-input',
   type == 'checkbox' and is_boolean ? 'toggle',

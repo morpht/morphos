@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set content_attributes = create_attribute() %}
 {% set container_attributes = create_attribute() %}
 {% set overlay_attributes = create_attribute() %}
@@ -41,7 +43,7 @@
 {% set classes = [
   'banner',
   'component',
-  canvas_is_preview ? 'component--preview',
+  is_preview ? 'component--preview',
   palette,
   texture,
 ]|merge(margin) %}
@@ -56,7 +58,7 @@
 ]|merge(padding) %}
 
 {% set banner_breadcrumb %}
-  {% if canvas_is_preview %}
+  {% if is_preview %}
     <div class="banner__breadcrumbs">
       {{ slot_breadcrumb }}
     </div>
@@ -103,7 +105,7 @@
   {% if background_image.src or featured_image.src %}
     <div class="component__backgrounds">
       {% if featured_image.src %}
-        <div class="hidden lg:block! absolute right-0 top-0 bottom-0 w-full lg:max-w-[40%] 2xl:max-w-[33%] z-2">
+        <div class="hidden lg:block! absolute right-0 rtl:right-[unset] rtl:left-0 top-0 bottom-0 w-full lg:max-w-[40%] 2xl:max-w-[33%] z-2">
           {{ include('canvas:image', {
             src: featured_image.src,
             alt: featured_image.alt,

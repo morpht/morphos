@@ -17,7 +17,6 @@
   /**
    * Linear Gradients
    */
-
   /* Linear: Start - gradient from start edge (darker) to end edge */
   .texture--linear-start {
     background: linear-gradient(
@@ -141,7 +140,6 @@
   /**
    * Radial Gradients
    */
-
   /* Radial: Spotlight - stronger from center, lighter edges */
   .texture--radial-spotlight {
     background: radial-gradient(
@@ -163,11 +161,18 @@
   /**
    * Conic Gradients
    */
-
   /* Conic: Top Start - conic gradient radiating from top-start */
   .texture--conic-top-start {
     background: conic-gradient(
       from 315deg at 50% 50%,
+      var(--background-stronger) 0deg,
+      var(--background)
+    );
+  }
+  [dir='rtl'] .texture--conic-top-start,
+  .texture--conic-top-start:dir(rtl) {
+    background: conic-gradient(
+      from 45deg at 50% 50%,
       var(--background-stronger) 0deg,
       var(--background)
     );
@@ -181,11 +186,27 @@
       var(--background)
     );
   }
+  [dir='rtl'] .texture--conic-top-end,
+  .texture--conic-top-end:dir(rtl) {
+    background: conic-gradient(
+      from 315deg at 50% 50%,
+      var(--background-stronger) 0deg,
+      var(--background)
+    );
+  }
 
   /* Conic: Bottom Start - conic gradient radiating from bottom-start */
   .texture--conic-bottom-start {
     background: conic-gradient(
       from 225deg at 50% 50%,
+      var(--background-stronger) 0deg,
+      var(--background)
+    );
+  }
+  [dir='rtl'] .texture--conic-bottom-start,
+  .texture--conic-bottom-start:dir(rtl) {
+    background: conic-gradient(
+      from 135deg at 50% 50%,
       var(--background-stronger) 0deg,
       var(--background)
     );
@@ -202,9 +223,9 @@
   [dir='rtl'] .texture--conic-bottom-end,
   .texture--conic-bottom-end:dir(rtl) {
     background: conic-gradient(
-      from 180deg at 0% 100%,
-      var(--background),
-      var(--background-stronger)
+      from 225deg at 50% 50%,
+      var(--background-stronger) 0deg,
+      var(--background)
     );
   }
 }

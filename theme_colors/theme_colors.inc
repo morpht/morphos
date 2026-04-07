@@ -809,6 +809,13 @@ function _theme_colors_settings(&$form_settings, $skin_key): void {
     ],
   ];
 
+  $form_settings['header_sticky'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Sticky header'),
+    '#description' => t('Enable to make the header sticky on the top of the page.'),
+    '#default_value' =>  _get("skins.$skin_key.settings.header_sticky") ?? FALSE,
+  ];
+
   $form_settings['footer_sticky'] = [
     '#type' => 'checkbox',
     '#title' => t('Sticky footer'),

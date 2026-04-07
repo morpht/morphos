@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set content_attributes = create_attribute() %}
 {% set container_attributes = create_attribute() %}
 {% set overlay_attributes = create_attribute() %}
@@ -39,7 +41,7 @@
 {% set classes = [
   'hero',
   'component',
-  canvas_is_preview ? 'component--preview',
+  is_preview ? 'component--preview',
   palette,
   texture,
 ]|merge(margin) %}

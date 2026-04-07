@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set content_attributes = create_attribute() %}
 {% set overlay_attributes = create_attribute() %}
 
@@ -34,7 +36,7 @@
 
 {% set classes = [
   'component',
-  canvas_is_preview ? 'component--preview',
+  is_preview ? 'component--preview',
   palette,
   texture
 ]|merge(margin) %}
@@ -57,11 +59,11 @@
   gap ? 'gap-' ~ gap,
 ]|merge(padding) %}
 
-{% set component_preview %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ content_attributes.addClass(content_classes) }}>
-      {{ slot_items }}
-    </div>
+<div{{ attributes.addClass(classes) }}>
+  <div{{ content_attributes.addClass(content_classes) }}>
+    {{ slot_items }}
+  </div>
+  {% if is_preview %}
     <div class="component__backgrounds">
       {{ slot_backgrounds }}
     </div>
@@ -69,14 +71,7 @@
     <div class="component__behaviors">
       {{ slot_behaviors }}
     </div>
-  </div>
-{% endset %}
-
-{% set component_render %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ content_attributes.addClass(content_classes) }}>
-      {{ slot_items }}
-    </div>
+  {% else %}
     {% if slot_backgrounds|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
       <div class="component__backgrounds">
         {{ slot_backgrounds }}
@@ -90,11 +85,5 @@
         {{ slot_behaviors }}
       </div>
     {% endif %}
-  </div>
-{% endset %}
-
-{% if canvas_is_preview %}
-  {{ component_preview }}
-{% else %}
-  {{ component_render }}
-{% endif %}
+  {% endif %}
+</div>

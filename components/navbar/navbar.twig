@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set navbar_container_attributes = create_attribute() %}
 
 {% set slot_start %}{% block start %}{% endblock %}{% endset %}
@@ -10,7 +12,7 @@
   is_sticky ? 'sticky top-0',
   palette,
   texture,
-  canvas_is_preview ? 'navbar--preview',
+  is_preview ? 'navbar--preview',
 ] %}
 
 {% set container_classes = [
@@ -59,7 +61,7 @@
   </nav>
 {% endset %}
 
-{% if canvas_is_preview %}
+{% if is_preview %}
   {{ component_preview }}
 {% else %}
   {{ component_render }}

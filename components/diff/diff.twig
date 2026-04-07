@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set classes = [
   'diff',
   'aspect-16/9',
@@ -31,7 +33,7 @@
     {% endif %}
   </div>
   <div class="diff-resizer"></div>
-  {% if canvas_is_preview and item_1.src is empty and item_2.src is empty %}
+  {% if is_preview and item_1.src is empty and item_2.src is empty %}
     <div class="p-8 text-center text-base-content/50 min-w-3">
       Select images using the panel on the right.
     </div>

@@ -3,12 +3,14 @@
     {% if url %}
       <a href="{{ url }}" class="title__link">
         {{ heading }}
-        {{ include('morphos:icon', {
-          icon: 'caret-circle-right',
-          icon_size: 'icon-size--sm',
-        },
-          with_context: false
-        ) }}
+        <span class="title__icon">
+          {{ include('morphos:icon', {
+            icon: 'caret-circle-right',
+            icon_size: 'icon-size--sm',
+          },
+            with_context: false
+          ) }}
+        </span>
       </a>
     {% else %}
       <div class="title__label">

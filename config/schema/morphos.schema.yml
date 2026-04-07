@@ -437,6 +437,9 @@ morphos.settings:
               header_menu_megamenu_cols:
                 type: string
                 label: 'Mega menu columns'
+              header_sticky:
+                type: boolean
+                label: 'Sticky header'
               footer_sticky:
                 type: boolean
                 label: 'Sticky footer'

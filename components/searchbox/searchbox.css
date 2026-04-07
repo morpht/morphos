@@ -4,15 +4,18 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
+@reference "../../tailwindcss";
+
 .searchbox__query {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  border-radius: 0;
-  border: 0;
-  box-shadow: unset;
+  @apply m-0 rounded-none border-0 p-0 shadow-none outline-0;
 
   &:focus-visible {
-    outline: 0;
+    @apply outline-0;
+  }
+}
+
+[dir='rtl'] {
+  .searchbox__icon {
+    @apply scale-x-[-1];
   }
 }

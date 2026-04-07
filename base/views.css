@@ -39,11 +39,11 @@
     }
 
     .form-text {
-      @apply w-full rounded-l-full border p-4;
+      @apply w-full rounded-l-full border p-4 rtl:rounded-l-none rtl:rounded-r-full;
     }
 
     .form-submit {
-      @apply rounded-r-full;
+      @apply rounded-r-full rtl:rounded-l-full rtl:rounded-r-none;
     }
   }
 }

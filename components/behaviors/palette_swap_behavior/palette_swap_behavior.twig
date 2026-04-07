@@ -8,6 +8,8 @@
  */
 #}
 
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set classes = [
   'palette-swap-behavior',
 ] %}
@@ -19,7 +21,7 @@
   'text-sm',
 ] %}
 
-{% if canvas_is_preview %}
+{% if is_preview %}
   <div{{ attributes.addClass(classes, preview_classes) }}>
     Palette Swap Behavior
   </div>

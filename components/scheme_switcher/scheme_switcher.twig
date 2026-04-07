@@ -1,7 +1,6 @@
 <div{{ attributes.addClass('scheme-switcher') }}>
   <label class="scheme-switcher__toggle toggle">
     <input type="checkbox" class="scheme-switcher__controller" aria-label="Toggle dark mode"/>
-    <span class="sr-only">Toggle dark mode</span>
     {{ include('morphos:icon', {
       icon: 'sun',
       icon_size: 'icon-size--xs',
@@ -14,5 +13,6 @@
     },
       with_context: false
     ) }}
+    <span class="sr-only">Toggle dark mode</span>
   </label>
 </div>

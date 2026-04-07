@@ -1,9 +1,11 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set classes = [
   'logo-cloud',
   'flex',
   'flex-wrap',
   'items-center',
-  canvas_is_preview ? 'w-full min-h-20',
+  is_preview ? 'w-full min-h-20',
   position == 'position-start' ? 'justify-start',
   position == 'position-center' or not position ? 'justify-center',
   position == 'position-end' ? 'justify-end',

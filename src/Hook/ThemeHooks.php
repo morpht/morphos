@@ -72,7 +72,7 @@ final class ThemeHooks {
     // Get default scheme from theme settings.
     $variables['scheme'] = $this->themeSettings->getSetting("definition.default.scheme");
 
-    // Get footer sticky setting.
+    // Get header and footer sticky settings.
     $skins = $this->themeSettings->getSetting('skins');
     $default_skin = $this->themeSettings->getSetting('definition.default.skin')
       ?? (is_array($skins) ? array_key_first($skins) : NULL);
@@ -80,6 +80,8 @@ final class ThemeHooks {
     if (!empty($skins) && !empty($default_skin)) {
       require_once self::$appRoot . '/' . $this->themeList->getPath('morphos') . '/theme_colors/theme_colors_variables.inc';
       $active_skin = _get_apply_skin($skins) ?? $default_skin;
+
+      $variables['header_sticky'] = $skins[$active_skin]['settings']['header_sticky'] ?? FALSE;
       $variables['footer_sticky'] = $skins[$active_skin]['settings']['footer_sticky'] ?? FALSE;
     }
   }

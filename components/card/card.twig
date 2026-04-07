@@ -1,3 +1,5 @@
+{% set is_preview = canvas_is_preview or in_preview %}
+
 {% set body_attributes = create_attribute() %}
 {% set action_attributes = create_attribute() %}
 
@@ -13,7 +15,7 @@
   card_side ? 'card-side',
   palette,
   texture,
-  canvas_is_preview ? 'card--preview',
+  is_preview ? 'card--preview',
 ] %}
 
 {% set body_classes = [
@@ -124,7 +126,7 @@
   </div>
 {% endset %}
 
-{% if canvas_is_preview %}
+{% if is_preview %}
   {{ component_preview }}
 {% else %}
   {{ component_render }}
