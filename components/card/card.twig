@@ -126,8 +126,4 @@
   </div>
 {% endset %}
 
-{% if is_preview %}
-  {{ component_preview }}
-{% else %}
-  {{ component_render }}
-{% endif %}
+{{ is_preview ? component_preview : component_render }}

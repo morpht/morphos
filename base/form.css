@@ -7,19 +7,17 @@
 @reference '../tailwindcss';
 
 @layer components {
-  .webform-submission-form {
-    .visually-hidden {
-      @apply sr-only;
-    }
+  .fieldset-wrapper {
+    @apply flex flex-col gap-2;
   }
 
-  fieldset:not(.webform-type-fieldset) .fieldset-wrapper {
-    @apply gap-2;
+  .fieldset-legend {
+    color: var(--highlight);
   }
 
   label,
   .fieldset-legend {
-    @apply mb-2 block text-sm font-semibold md:text-base;
+    @apply mb-2 block flex flex-wrap items-center gap-1 text-sm font-semibold md:text-base;
   }
 
   * + .form-item,
@@ -42,7 +40,6 @@
     }
   }
 
-  .webform-element-description,
   .text-count-wrapper {
     @apply mt-2 text-xs;
   }
@@ -50,6 +47,7 @@
   input,
   textarea,
   select {
+    background-color: var(--background);
     border-color: var(--foreground);
 
     &::placeholder {
@@ -75,21 +73,6 @@
     color: var(--color-error);
   }
 
-  .webform-options-display-one-column {
-    @apply flex flex-col gap-2;
-  }
-
-  .webform-type-checkbox,
-  .webform-type-radio {
-    &.form-item {
-      @apply flex flex-wrap gap-2;
-
-      label {
-        @apply m-0 font-normal;
-      }
-    }
-  }
-
   .progress-text {
     @apply text-inherit!;
   }
@@ -97,7 +80,7 @@
   .form-required-indicator {
     @apply text-sm;
 
-    color: var(--color-error);
+    color: var(--foreground-weak);
   }
 
   [dir='rtl'] {
@@ -117,5 +100,33 @@
   .input:focus,
   .input:focus-within {
     color: var(--foreground-focus);
+  }
+
+  .fieldset {
+    @apply p-0;
+  }
+
+  .fieldset-legend {
+    @apply mb-2 p-0;
+  }
+
+  .radio {
+    --input-color: var(--highlight);
+    background-color: var(--background-weak);
+  }
+
+  .range {
+    --range-bg: var(--background-weaker);
+    --range-progress: var(--highlight);
+  }
+
+  .toggle {
+    --input-color: var(--foreground-weak);
+  }
+
+  .toggle:checked,
+  .toggle[aria-checked='true'],
+  .toggle:has(> input:checked) {
+    --input-color: var(--highlight);
   }
 }

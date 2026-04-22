@@ -66,8 +66,6 @@ props:
         '16': '16 (64px)'
         '24': '24 (96px)'
         '32': '32 (128px)'
-      examples:
-        - '12'
     margin_bottom:
       type: string
       title: Margin bottom
@@ -88,8 +86,6 @@ props:
         '16': '16 (64px)'
         '24': '24 (96px)'
         '32': '32 (128px)'
-      examples:
-        - '12'
     padding_top:
       type: string
       title: Padding top
@@ -111,7 +107,7 @@ props:
         '24': '24 (96px)'
         '32': '32 (128px)'
       examples:
-        - '0'
+        - '12'
     padding_bottom:
       type: string
       title: Padding bottom
@@ -133,7 +129,7 @@ props:
         '24': '24 (96px)'
         '32': '32 (128px)'
       examples:
-        - '0'
+        - '12'
     container:
       type: string
       title: Container

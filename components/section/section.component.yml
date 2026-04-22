@@ -182,8 +182,6 @@ props:
         '16': '16 (64px)'
         '24': '24 (96px)'
         '32': '32 (128px)'
-      examples:
-        - '0'
     margin_bottom:
       type: string
       title: Margin bottom
@@ -204,8 +202,6 @@ props:
         '16': '16 (64px)'
         '24': '24 (96px)'
         '32': '32 (128px)'
-      examples:
-        - '0'
     padding_top:
       type: string
       title: Padding top
@@ -360,3 +356,7 @@ slots:
   behaviors:
     title: Behaviors
     description: Add behavior items to this slot.
+libraryOverrides:
+  css:
+    component:
+      ../../dist/css/section.css: { minified: true }

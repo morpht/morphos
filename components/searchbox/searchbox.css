@@ -6,6 +6,12 @@
 
 @reference "../../tailwindcss";
 
+.searchbox {
+  label {
+    @apply flex-nowrap;
+  }
+}
+
 .searchbox__query {
   @apply m-0 rounded-none border-0 p-0 shadow-none outline-0;
 

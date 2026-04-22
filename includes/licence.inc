@@ -11,10 +11,8 @@ use Drupal\Core\Form\FormStateInterface;
  * Builds the licence settings tab.
  */
 function _theme_licence(&$form, FormStateInterface $form_state): void {
-
-  $licence_url = 'https://docs.morpht.com/convivial-gov';
-
   $themeSettingsProvider = \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider');
+  $licence_url = 'https://docs.morpht.com/convivial-gov';
   $licence_accepted = $themeSettingsProvider->getSetting('licence.licence_accept');
 
   $form['licence'] = [

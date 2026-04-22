@@ -121,6 +121,9 @@ morphos.settings:
                           highlight:
                             type: color_hex
                             label: 'Highlight'
+                          highlight_contrast:
+                            type: color_hex
+                            label: 'Highlight contrast'
           radius:
             type: mapping
             label: 'Radius'

@@ -8,8 +8,6 @@
 
 {% set classes = [
   'navbar',
-  'z-50',
-  is_sticky ? 'sticky top-0',
   palette,
   texture,
   is_preview ? 'navbar--preview',
@@ -61,8 +59,4 @@
   </nav>
 {% endset %}
 
-{% if is_preview %}
-  {{ component_preview }}
-{% else %}
-  {{ component_render }}
-{% endif %}
+{{ is_preview ? component_preview : component_render }}

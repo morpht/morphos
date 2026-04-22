@@ -6,7 +6,6 @@
 
 /* Ensure slider has a minimum height for Canvas visibility */
 .slider {
-  min-height: 200px;
   width: 100%;
 }
 

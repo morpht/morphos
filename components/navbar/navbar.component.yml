@@ -5,12 +5,6 @@ status: stable
 props:
   type: object
   properties:
-    is_sticky:
-      type: boolean
-      title: Sticky
-      description: Enable to make the navbar sticky at the top of the page.
-      examples:
-        - false
     container:
       type: string
       title: Container

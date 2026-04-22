@@ -58,7 +58,7 @@
   .megamenu__sub-nav {
     @apply pointer-events-none invisible absolute top-[100%] right-0 left-0 z-50 overflow-hidden p-4 shadow-lg;
 
-    background-color: var(--background-weak);
+    background-color: var(--background-strong);
     display: grid;
     grid-template-rows: 0fr;
     transition:

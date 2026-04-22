@@ -207,8 +207,9 @@
         '.color-base',
         context,
       );
+
       baseColorElements.forEach((element) => {
-        element.addEventListener('input', handleColorChange);
+        element.addEventListener('change', handleColorChange);
         element.addEventListener('focus', handleFocus);
         element.addEventListener('blur', handleBlur);
       });
@@ -218,6 +219,7 @@
         '.color-derivative',
         context,
       );
+
       derivativeColorElements.forEach((element) => {
         element.addEventListener('input', handleDerivativeColorChange);
       });

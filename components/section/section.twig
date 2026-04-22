@@ -15,11 +15,11 @@
 {% set slot_backgrounds %}{% block backgrounds %}{% endblock %}{% endset %}
 {% set slot_behaviors %}{% block behaviors %}{% endblock %}{% endset %}
 
-{% set is_header_items_render = slot_header_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim ? true : false %}
-{% set is_header_render = is_header_items_render or (heading and not hide_heading) or intro ? true : false %}
+{% set is_header_items_render = slot_header_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
+{% set is_header_render = is_header_items_render or (heading and not hide_heading) or intro %}
 {% set is_main_items_render = slot_main_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
 {% set is_footer_items_render = slot_footer_items|render|striptags('<drupal-render-placeholder><img><figure><div><button>')|trim %}
-{% set is_footer_render =  is_footer_items_render or (readmore_url and readmore_text) ? true : false %}
+{% set is_footer_render =  is_footer_items_render or (readmore_url and readmore_text) %}
 
 {% set margin = [
   margin_top == '0' ? 'mt-0',
@@ -79,7 +79,6 @@
 {% set container_inner_classes = [
   'section__container-inner',
   'grid grid-cols-12',
-  'gap-4 lg:gap-6',
   '@container',
   content_width == 'section-width--100' ? 'w-full',
   content_width == 'section-width--75' ? 'w-full lg:max-w-[75%]',
@@ -92,8 +91,6 @@
 
 {% set header_classes = [
   'section__header',
-  'flex flex-col',
-  'gap-4 lg:gap-6',
   'order-1',
   'col-span-12',
   layout == 'layout--3-9' ? '@3xl:col-span-3',
@@ -149,10 +146,10 @@
 {% set content_classes = [
   'section__content',
   'grid grid-cols-1',
-  'gap-4 lg:gap-6',
-  column_widths == 'section-col-widths--50-50' ? '@md:grid-cols-2 no-rhythm',
-  column_widths == 'section-col-widths--33-33-33' ? '@md:grid-cols-2 @3xl:grid-cols-3 no-rhythm',
-  column_widths == 'section-col-widths--25-25-25-25' ? '@md:grid-cols-2 @3xl:grid-cols-4 no-rhythm',
+  column_widths ? 'no-rhythm',
+  column_widths == 'section-col-widths--50-50' ? '@md:grid-cols-2',
+  column_widths == 'section-col-widths--33-33-33' ? '@md:grid-cols-2 @3xl:grid-cols-3',
+  column_widths == 'section-col-widths--25-25-25-25' ? '@md:grid-cols-2 @3xl:grid-cols-4',
 ] %}
 
 {% set component_preview %}
@@ -188,14 +185,14 @@
         </div>
 
         {% if show_footer %}
-          <footer class="section__footer col-span-12 order-3">
-            <div class="section__footer-content flex flex-col gap-4 lg:gap-6">
+          <footer class="section__footer">
+            <div class="section__footer-content">
               <div class="section__footer-items">
                 {{ slot_footer_items }}
               </div>
 
               {% if readmore_url and readmore_text %}
-                <div class="section__readmore flex justify-end">
+                <div class="section__readmore">
                   <a href="{{ readmore_url }}" class="btn btn-default btn-outline">
                     {{ readmore_text }}
 
@@ -266,8 +263,8 @@
 
         {% if show_footer %}
           {% if is_footer_render %}
-            <footer class="section__footer col-span-12 order-3">
-              <div class="section__footer-content flex flex-col gap-4 lg:gap-6">
+            <footer class="section__footer">
+              <div class="section__footer-content">
                 {% if is_footer_items_render %}
                   <div class="section__footer-items">
                     {{ slot_footer_items }}
@@ -275,7 +272,7 @@
                 {% endif %}
 
                 {% if readmore_url and readmore_text %}
-                  <div class="section__readmore flex justify-end">
+                  <div class="section__readmore">
                     <a href="{{ readmore_url }}" class="btn btn-default btn-outline">
                       {{ readmore_text }}
 
@@ -313,8 +310,4 @@
   </div>
 {% endset %}
 
-{% if is_preview %}
-  {{ component_preview }}
-{% else %}
-  {{ component_render }}
-{% endif %}
+{{ is_preview ? component_preview : component_render }}

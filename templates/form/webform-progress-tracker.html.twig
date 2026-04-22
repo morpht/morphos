@@ -31,7 +31,7 @@
     {% set is_active = index == current_index %}
     {% set step_classes = [
       'step',
-      is_active or is_completed ? 'step-primary',
+      is_active or is_completed ? 'step--active',
     ] %}
     {% set step_attributes = create_attribute()
       .setAttribute('data-webform-' ~ page.type, page.name)

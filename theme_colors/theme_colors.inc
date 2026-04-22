@@ -151,11 +151,18 @@ function _theme_colors(&$form, FormStateInterface $form_state): void {
       'link_contrast' => [
         'label' => 'Link contrast',
         'base' => 'link_base',
-        'processor' => 'strengthen-80',
+        'contrast' => 'link',
+        'processor' => 'strengthen-90',
       ],
       'highlight' => [
         'label' => 'Highlight',
         'base' => 'highlight_base',
+      ],
+      'highlight_contrast' => [
+        'label' => 'Highlight contrast',
+        'base' => 'highlight_base',
+        'contrast' => 'highlight',
+        'processor' => 'strengthen-90',
       ],
     ],
   ];
@@ -494,6 +501,9 @@ function _theme_colors_colors(&$form_colors, $skin_key, $scheme_key, $colors, $c
             <span data-color-color='{$field_dep_name}[COLOR_KEY][derivatives][link]'>Link</span>
             <span data-color-color='{$field_dep_name}[COLOR_KEY][derivatives][link_hover]'>Hover</span>
             <span data-color-color='{$field_dep_name}[COLOR_KEY][derivatives][link_active]'>Active</span>
+          </p>
+          <p>
+            <span data-color-color='{$field_dep_name}[COLOR_KEY][derivatives][highlight]'>Highlight</span>
           </p>
         </div>
       </div>

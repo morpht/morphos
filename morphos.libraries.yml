@@ -3,9 +3,6 @@ global:
   css:
     theme:
       dist/css/global.css: { minified: true, preprocess: false }
-  dependencies:
-    - core/drupal
-    - core/once
 
 # Theme colors
 theme_colors:

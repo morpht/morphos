@@ -42,7 +42,7 @@
   }
 
   .dropdown-content {
-    background-color: var(--background-weak);
+    background-color: var(--background-strong);
   }
 }
 

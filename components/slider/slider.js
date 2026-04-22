@@ -19,75 +19,11 @@
   };
 
   /**
-   * Build responsive breakpoints from the base config.
+   * Measure tallest slide and set container height for grid layout.
    *
-   * Mobile (< 768px): 1 slide, 1 row.
-   * Tablet (768px): half of desktop slidesPerView (min 1).
-   * Desktop (1024px): full slidesPerView and grid rows.
-   */
-  const buildBreakpoints = (config) => {
-    const desktopPerView = config.slidesPerView || 1;
-    const desktopPerGroup = config.slidesPerGroup || 1;
-    const desktopSpaceBetween = config.spaceBetween || 0;
-    const hasGrid = config.grid && config.grid.rows > 1;
-
-    if (desktopPerView <= 1 && !hasGrid) {
-      return {};
-    }
-
-    const tabletPerView = Math.max(1, Math.ceil(desktopPerView / 2));
-    const tabletPerGroup = Math.min(desktopPerGroup, tabletPerView);
-
-    const breakpoints = {
-      768: {
-        slidesPerView: tabletPerView,
-        slidesPerGroup: tabletPerGroup,
-        spaceBetween: desktopSpaceBetween,
-      },
-      1024: {
-        slidesPerView: desktopPerView,
-        slidesPerGroup: desktopPerGroup,
-        spaceBetween: desktopSpaceBetween,
-      },
-    };
-
-    if (hasGrid) {
-      breakpoints[768].grid = {
-        rows: Math.max(1, Math.ceil(config.grid.rows / 2)),
-        fill: config.grid.fill || 'column',
-      };
-      breakpoints[1024].grid = config.grid;
-    }
-
-    return breakpoints;
-  };
-
-  /**
-   * Wait for all images inside an element to finish loading.
-   */
-  const waitForImages = (el) => {
-    const images = el.querySelectorAll('img');
-    const promises = Array.from(images).map(
-      (img) =>
-        new Promise((resolve) => {
-          if (img.complete) {
-            resolve();
-          } else {
-            img.addEventListener('load', resolve, { once: true });
-            img.addEventListener('error', resolve, { once: true });
-          }
-        }),
-    );
-    return Promise.all(promises);
-  };
-
-  /**
-   * Measure the tallest slide's natural height and set the container
-   * height so Swiper grid can calculate row percentages.
-   *
-   * @param {HTMLElement} el - The Swiper container.
-   * @param {number} rows - Number of grid rows.
-   * @param {number} spaceBetween - Gap between rows in pixels.
+   * Swiper grid sets slide heights to calc((100% - gap) / rows), which
+   * requires the container to have an explicit height. Swiper does not
+   * do this automatically.
    */
   const applyGridHeight = (el, rows, spaceBetween) => {
     if (rows <= 1) {
@@ -98,7 +34,6 @@
     let maxHeight = 0;
 
     slides.forEach((slide) => {
-      // Temporarily reset any Swiper-set height to get natural height.
       const prev = slide.style.height;
       slide.style.height = 'auto';
       maxHeight = Math.max(maxHeight, slide.offsetHeight);
@@ -106,7 +41,10 @@
     });
 
     if (maxHeight > 0) {
-      el.style.height = maxHeight * rows + spaceBetween * (rows - 1) + 'px';
+      const next = maxHeight * rows + spaceBetween * (rows - 1) + 'px';
+      if (el.style.height !== next) {
+        el.style.height = next;
+      }
     }
   };
 
@@ -125,11 +63,19 @@
         }
 
         let config = {};
-        try {
-          config = JSON.parse(el.getAttribute('data-swiper-config'));
-        } catch (e) {
-          Drupal.throwError(e);
+        const raw = el.getAttribute('data-swiper-config');
+        if (raw) {
+          try {
+            config = JSON.parse(raw) || {};
+          } catch (e) {
+            Drupal.throwError(e);
+          }
         }
+
+        const perView = config.slidesPerView || 1;
+        const perGroup = config.slidesPerGroup || 1;
+        const space = config.spaceBetween || 0;
+        const hasGrid = config.grid && config.grid.rows > 1;
 
         // Vertical mode: set container height to tallest slide.
         if (config.direction === 'vertical' && wrapper) {
@@ -142,31 +88,14 @@
           }
         }
 
-        // Grid mode: set container height BEFORE Swiper init so
-        // percentage-based row heights have a reference value.
-        const gridRows = config.grid ? config.grid.rows : 1;
-        if (gridRows > 1) {
-          applyGridHeight(el, gridRows, config.spaceBetween || 0);
-        }
-
-        // Build responsive breakpoints.
-        const breakpoints = buildBreakpoints(config);
-        const hasBreakpoints = Object.keys(breakpoints).length > 0;
-
-        const swiperOptions = {
-          ...config,
-          // When using breakpoints, set mobile-first base values.
-          ...(hasBreakpoints
-            ? {
-                slidesPerView: 1,
-                slidesPerGroup: 1,
-                spaceBetween: config.spaceBetween || 0,
-                ...(config.grid
-                  ? { grid: { rows: 1, fill: config.grid.fill || 'column' } }
-                  : {}),
-                breakpoints,
-              }
-            : {}),
+        // Swiper options.
+        const options = {
+          effect: config.effect || 'slide',
+          direction: config.direction || 'horizontal',
+          speed: config.speed || 300,
+          loop: config.loop || false,
+          slidesPerView: 1,
+          spaceBetween: space,
           pagination: config.pagination
             ? {
                 el: el.querySelector('.swiper-pagination'),
@@ -180,41 +109,64 @@
                 prevEl: el.querySelector('.swiper-button-prev'),
               }
             : false,
-          scrollbar: {
-            el: el.querySelector('.swiper-scrollbar'),
-          },
+          scrollbar: el.querySelector('.swiper-scrollbar')
+            ? { el: el.querySelector('.swiper-scrollbar') }
+            : false,
         };
 
-        const swiper = new Swiper(el, swiperOptions);
+        // Responsive breakpoints.
+        const mobileBreakpoint = 768;
+
+        if (perView > 1 || hasGrid) {
+          options.breakpointsBase = 'container';
+          options.breakpoints = {
+            [mobileBreakpoint]: {
+              slidesPerView: perView,
+              slidesPerGroup: perGroup,
+              spaceBetween: space,
+              ...(hasGrid ? { grid: config.grid } : {}),
+            },
+          };
+        }
+
+        const swiper = new Swiper(el, options);
         el._swiperInstance = swiper;
 
-        // Grid mode: recalculate height after images load, then on resize.
-        if (gridRows > 1) {
-          waitForImages(el).then(() => {
-            applyGridHeight(el, gridRows, config.spaceBetween || 0);
-            swiper.update();
+        // Observe container size changes to manage grid height.
+        if (hasGrid) {
+          let pending = false;
+          const observer = new ResizeObserver(() => {
+            if (pending) {
+              return;
+            }
+            pending = true;
+            requestAnimationFrame(() => {
+              pending = false;
+              if (el.clientWidth > mobileBreakpoint) {
+                applyGridHeight(el, config.grid.rows, space);
+              } else if (el.style.height !== '') {
+                el.style.height = '';
+              }
+              swiper.update();
+            });
           });
-
-          const ro = new ResizeObserver(() => {
-            applyGridHeight(el, gridRows, config.spaceBetween || 0);
-            swiper.update();
-          });
-          ro.observe(el);
-          el._swiperGridRo = ro;
+          observer.observe(el);
+          el._swiperResizeObserver = observer;
         }
       });
     },
 
     detach: (context) => {
       once.remove('swiper-init', '.slider', context).forEach((el) => {
-        if (el._swiperGridRo) {
-          el._swiperGridRo.disconnect();
-          delete el._swiperGridRo;
-        }
         if (el._swiperInstance) {
           el._swiperInstance.destroy(true, true);
           delete el._swiperInstance;
         }
+        if (el._swiperResizeObserver) {
+          el._swiperResizeObserver.disconnect();
+          delete el._swiperResizeObserver;
+        }
+        el.style.height = '';
       });
     },
   };
