@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Group
-description: Groups items together.
+description: A generic logical wrapper used to bundle related components together for shared spacing or alignment.
 group: Container
 status: stable
 props:

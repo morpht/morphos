@@ -2,7 +2,7 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Summary
 status: stable
 group: Display
-description: Displays items as a summary helpful for rich and dense display of content metadata.
+description: A short, impactful text block used to provide an overview summary.
 props:
   type: object
   properties:

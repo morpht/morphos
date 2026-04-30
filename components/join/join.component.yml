@@ -1,5 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Join
+description: A utility that visually merges buttons or inputs into a single seamless unit.
 group: Element
 status: stable
 props:

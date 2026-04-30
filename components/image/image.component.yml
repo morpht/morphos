@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Image
-description: Provides an image with some basic controls on size and links.
+description: A standalone visual element with support for captions, alt text, and responsive scaling.
 group: Element
 noUi: true
 props:

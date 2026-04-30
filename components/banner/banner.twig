@@ -46,6 +46,7 @@
   is_preview ? 'component--preview',
   palette,
   texture,
+  overlay ? 'has-overlay',
 ]|merge(margin) %}
 
 {% set container_classes = [
@@ -84,7 +85,6 @@
   <div{{ container_attributes.addClass(container_classes) }}>
     <div class="banner__content flex flex-col gap-4 w-full lg:max-w-[50%]">
       {{ banner_breadcrumb }}
-
       {% if kicker %}
         <div class="banner__kicker uppercase">{{- kicker -}}</div>
       {% endif %}

@@ -1,7 +1,7 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Card - Icon
 group: Display
-description: 'Displays items as an icon card, helpful for informational items.'
+description: A descriptive block using a decorative or functional icon to represent a category or service.
 props:
   type: object
   properties:

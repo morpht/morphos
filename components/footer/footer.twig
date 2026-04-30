@@ -43,6 +43,7 @@
   is_preview ? 'component--preview',
   palette,
   texture,
+  overlay ? 'has-overlay',
 ]|merge(margin) %}
 
 {% set container_classes = [
@@ -70,9 +71,9 @@
     <div class="footer__bottom w-full border-t pt-8">
       {% block bottom_items %}{% endblock %}
     </div>
-    <div class="component__backgrounds">
-      {% block backgrounds %}{% endblock %}
-    </div>
+  </div>
+  <div class="component__backgrounds">
+    {% block backgrounds %}{% endblock %}
   </div>
   <div{{ overlay_attributes.addClass('component__overlay', overlay) }}></div>
   <div class="component__behaviors">

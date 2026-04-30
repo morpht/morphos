@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Grid
-description: Columns and rows for grid like layouts.
+description: A flexible layout wrapper used to arrange child elements into responsive columns and rows.
 group: Container
 status: stable
 props:

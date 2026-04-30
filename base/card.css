@@ -7,8 +7,11 @@
 @reference "../tailwindcss";
 
 .card {
+  @apply h-full overflow-hidden;
+
   background-color: var(--background-stronger);
   border-color: var(--background-weaker);
+  border-radius: var(--radius-box);
   color: var(--foreground);
 }
 
@@ -33,12 +36,9 @@
 }
 
 .card__image {
-  @apply overflow-hidden;
-
-  border-start-start-radius: inherit;
-  border-start-end-radius: inherit;
-  border-end-end-radius: unset;
-  border-end-start-radius: unset;
+  .media-entity img {
+    @apply h-auto w-full rounded-none;
+  }
 }
 
 .card__info,

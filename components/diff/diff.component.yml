@@ -1,6 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Diff
-description: Compare two images by sliding between them.
+description: A visual comparison tool used to show differences between two images.
 group: Content
 status: stable
 props:

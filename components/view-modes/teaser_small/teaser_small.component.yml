@@ -2,7 +2,7 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Teaser Small
 status: stable
 group: Display
-description: 'Displays items as a small teaser, helpful for compact, attractive lists.'
+description: A compact content snippet used in dense lists or sidebars to link to full articles.
 props:
   type: object
   properties:

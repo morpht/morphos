@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Banner
-description: 'Layout for the banner area of a page, handling title, colours and other page wide metadata.'
+description: A slim, high-visibility strip used for important content such as the title, breadcrumbs and introduction.
 group: Container
 props:
   type: object

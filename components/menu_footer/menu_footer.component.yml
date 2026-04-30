@@ -1,5 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Menu Footer
+description: Menu formatted as a number of columns suited for the footer.
 group: Content
 props:
   type: object

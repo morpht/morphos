@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Video
-description: Displays a video for YouTube, Vimeo or Native.
+description: An embedded media player for hosting or streaming video content (e.g., YouTube or Vimeo).
 group: Content
 status: stable
 props:

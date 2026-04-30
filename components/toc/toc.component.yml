@@ -1,6 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Table of contents
-description: Provides a dynamic table of contents.
+description: An automatically generated list of links that jump to specific headings within the page content.
 group: Content
 status: stable
 props:

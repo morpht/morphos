@@ -1,5 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Badge
+description: A small inline label used to highlight status, counts, or short categorical tags alongside other content.
 group: Element
 status: stable
 props:

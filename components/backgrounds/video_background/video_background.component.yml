@@ -1,5 +1,5 @@
 name: Video Background
-description: Adds a background video to a component.
+description: An ambient, muted video loop that plays behind the content of a section or hero.
 group: Background
 status: stable
 props:

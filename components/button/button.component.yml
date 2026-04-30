@@ -1,6 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Button
-description: 'Provides a flexible button with variants for colours, sizes and icons.'
+description: An interactive element used to trigger actions, submit forms, or navigate to pages.
 group: Element
 status: stable
 props:

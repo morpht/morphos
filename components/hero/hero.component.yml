@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Hero
-description: Simple container for important, attractive content.
+description: A prominent, full-width introductory block at the top of a page, typically featuring a large heading and call-to-action.
 group: Container
 status: stable
 props:

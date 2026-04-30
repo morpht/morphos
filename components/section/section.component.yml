@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Section
-description: Structural component for adding headings and introductions to content.
+description: A high-level vertical block used to divide a page into distinct thematic areas with consistent padding.
 group: Container
 status: stable
 props:

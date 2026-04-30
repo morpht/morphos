@@ -4,6 +4,22 @@
  * Copyright (c) 2026 Morpht Pty Ltd
  */
 
+/*
+ * Component content styles when an overlay is present.
+ * Applies a text shadow to improve readability against the overlay.
+ */
+.has-overlay {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-shadow: 0 0 0.5rem var(--background);
+  }
+}
+
 /**
  * Component overlay styles.
  * Overlays use background-XXX CSS variables (010-100) for smooth transitions.
@@ -14,8 +30,8 @@
 .overlay--linear-start {
   background: linear-gradient(
     to right,
-    var(--background-090) 0%,
-    var(--background-050) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -23,8 +39,8 @@
 [dir='rtl'] .overlay--linear-start {
   background: linear-gradient(
     to left,
-    var(--background-090) 0%,
-    var(--background-050) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -33,8 +49,8 @@
 .overlay--linear-end {
   background: linear-gradient(
     to left,
-    var(--background-090) 0%,
-    var(--background-050) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -42,8 +58,8 @@
 [dir='rtl'] .overlay--linear-end {
   background: linear-gradient(
     to right,
-    var(--background-090) 0%,
-    var(--background-050) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -52,8 +68,8 @@
 .overlay--linear-top {
   background: linear-gradient(
     to bottom,
-    var(--background-090) 0%,
-    var(--background-070) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -62,8 +78,8 @@
 .overlay--linear-bottom {
   background: linear-gradient(
     to top,
-    var(--background-090) 0%,
-    var(--background-070) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }
@@ -72,8 +88,8 @@
 .overlay--linear-top-start {
   background: linear-gradient(
     to bottom right,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -81,8 +97,8 @@
 [dir='rtl'] .overlay--linear-top-start {
   background: linear-gradient(
     to bottom left,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -91,8 +107,8 @@
 .overlay--linear-top-end {
   background: linear-gradient(
     to bottom left,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -100,8 +116,8 @@
 [dir='rtl'] .overlay--linear-top-end {
   background: linear-gradient(
     to bottom right,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -110,8 +126,8 @@
 .overlay--linear-bottom-start {
   background: linear-gradient(
     to top right,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -119,8 +135,8 @@
 [dir='rtl'] .overlay--linear-bottom-start {
   background: linear-gradient(
     to top left,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -129,8 +145,8 @@
 .overlay--linear-bottom-end {
   background: linear-gradient(
     to top left,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -138,8 +154,8 @@
 [dir='rtl'] .overlay--linear-bottom-end {
   background: linear-gradient(
     to top right,
-    var(--background-090) 0%,
-    var(--background-070) 50%,
+    var(--background-060) 0%,
+    var(--background-040) 50%,
     transparent 100%
   );
 }
@@ -148,8 +164,8 @@
 .overlay--radial-center {
   background: radial-gradient(
     circle at center,
-    var(--background-090) 0%,
-    var(--background-070) 70%,
+    var(--background-060) 0%,
+    var(--background-040) 70%,
     transparent 100%
   );
 }

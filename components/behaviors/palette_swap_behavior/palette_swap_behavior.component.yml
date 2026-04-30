@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Palette Swap Behavior
-description: Controls the toggling of colour palettes based on a users scroll position of the parent component.
+description: Dynamically changes the color theme or CSS variables of a component based on user interaction or context.
 group: Behavior
 status: stable
 props:

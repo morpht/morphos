@@ -1,5 +1,5 @@
 name: Image Background
-description: 'Adds a background image to a component, with many rich controls.'
+description: Applies a decorative or photographic image to the background of a container with overlay options.
 group: Background
 status: stable
 props:

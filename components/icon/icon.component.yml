@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Icon
-description: Provides a icon with a number of variants.
+description: A small vector graphicfrom the Phosphor library used to provide visual cues or represent specific actions.
 group: Element
 status: stable
 props:

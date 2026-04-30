@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Image
-description: Canvas version of an image to handle Canvas specific settings.
+description: A standalone visual element with support for captions, alt text, and responsive scaling.
 group: Element
 props:
   type: object

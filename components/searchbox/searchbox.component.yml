@@ -1,5 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Searchbox
+description: An input field that allows users to perform site-wide keyword searches.
 group: Global
 props:
   type: object

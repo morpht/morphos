@@ -1,5 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Navbar
+description: The primary navigation header containing site menus, branding, and utility links; usually fixed to the top of the viewport.
 group: Global
 status: stable
 props:

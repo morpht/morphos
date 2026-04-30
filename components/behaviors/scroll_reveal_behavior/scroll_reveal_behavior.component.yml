@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Scroll Reveal Behavior
-description: Controls to display of items based on a users scroll position of the parent component.
+description: Applies animation effects (like fade or slide) to elements as they enter the user's viewport.
 group: Behavior
 status: stable
 props:

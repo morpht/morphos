@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Slider
-description: 'Shows items (images, cards) in a interactive slider with many variants.'
+description: An interactive carousel that allows users to swipe through a sequence of images or content cards.
 group: Content
 status: stable
 props:

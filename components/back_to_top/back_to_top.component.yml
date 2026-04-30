@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Back to top
-description: A fixed button that scrolls the user back to the top of the page.
+description: A floating button that appears on scroll to quickly return the user to the top of the page.
 group: Global
 status: stable
 props:

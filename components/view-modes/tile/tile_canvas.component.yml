@@ -2,7 +2,7 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Tile
 status: stable
 group: Display
-description: 'Displays items as a an image tile, helpful for highly graphical content.'
+description: A rectangular navigational block, often used in a grid to represent services or categories.
 props:
   type: object
   properties:

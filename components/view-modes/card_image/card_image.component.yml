@@ -2,7 +2,7 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Card - Image
 status: stable
 group: Display
-description: 'Displays items as an image card, helpful for eye catching elements.'
+description: A content preview block featuring a prominent top image, title, and brief description.
 props:
   type: object
   properties:

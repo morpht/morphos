@@ -1,5 +1,6 @@
 $schema: 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Stat
+description: A single data visualization component featuring a large number and a descriptive label.
 group: Content
 status: stable
 props:

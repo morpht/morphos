@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Parallax Background
-description: Adds a scrolling parallax image based on a users scroll position of the parent component.
+description: A background image effect where the image moves slower than the foreground content during scrolling.
 group: Background
 status: stable
 props:

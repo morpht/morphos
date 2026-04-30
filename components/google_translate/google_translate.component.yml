@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Google Translate
-description: Adds a Google Translate widget for translating the page into different languages.
+description: A utility component that integrates automated machine translation for multi-language support.
 group: Global
 status: stable
 props:

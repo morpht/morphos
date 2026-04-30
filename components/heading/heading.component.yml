@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Heading
-description: Provides a heading with a number of variations.
+description: Structured text (H1–H6) used to define the information architecture of a page.
 group: Element
 status: stable
 props:

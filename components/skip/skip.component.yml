@@ -1,6 +1,6 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
 name: Skip
-description: A skip link to jump to the main content for keyboard and screen reader users.
+description: An accessibility link that allows keyboard users to bypass navigation and jump directly to the main content.
 group: Global
 status: stable
 props:
